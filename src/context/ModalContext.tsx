@@ -12,8 +12,33 @@ import {
 } from "react";
 
 const DEFAULT_WINDOWS: ModalProps[] = [
-  { id: "subaru-1", type: "subaru", title: "", zIndex: 1, x: 100, y: 100 },
-  { id: "subaru-2", type: "subaru", title: "", zIndex: 2, x: 500, y: 100 },
+  {
+    id: "window-about",
+    type: "about",
+    zIndex: 1,
+    x: 80,
+    y: 110,
+    width: 460,
+    height: 400,
+  },
+  {
+    id: "window-projects",
+    type: "projects",
+    zIndex: 2,
+    x: 580,
+    y: 80,
+    width: 560,
+    height: 480,
+  },
+  {
+    id: "window-contact",
+    type: "contact",
+    zIndex: 3,
+    x: 220,
+    y: 560,
+    width: 440,
+    height: 320,
+  },
 ];
 
 export type ModalContextType = {

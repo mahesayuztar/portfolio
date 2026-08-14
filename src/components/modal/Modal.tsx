@@ -1,6 +1,7 @@
 "use client";
 
 import { useModal } from "@/context/ModalContext";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { ModalProps } from "@/types/modal";
 import { useState } from "react";
 import { Rnd } from "react-rnd";
@@ -8,6 +9,20 @@ import { Rnd } from "react-rnd";
 export const Modal = (props: ModalProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const modalContext = useModal();
+  const isMobile = useIsMobile();
+
+  const frameClasses = `h-full w-full overflow-hidden rounded-xl border-ink bg-white transition-[box-shadow,transform] duration-200 ${
+    isDragging ? "-translate-y-1 shadow-offset" : "shadow-offset-soft"
+  }`;
+
+  if (isMobile) {
+    return (
+      <div className={`${frameClasses} mb-4`} style={{ height: props.height ?? 400 }}>
+        {props.children}
+      </div>
+    );
+  }
+
   return (
     <Rnd
       key={props.id}
@@ -66,21 +81,7 @@ export const Modal = (props: ModalProps) => {
       }}
       style={{ zIndex: props.zIndex }}
     >
-      <div
-        className={`flex h-full w-full flex-col rounded-xl border border-zinc-200 transition-all duration-200 ${
-          isDragging
-            ? "scale-[1.02] -translate-y-2 shadow-2xl"
-            : "translate-y-0 shadow-lg"
-        }`}
-      >
-        {props.title && (
-          <div className="flex justify-between px-4 py-2 border-b">
-            <span>{props.title}</span>
-          </div>
-        )}
-
-        <div className="flex-1">{props.children}</div>
-      </div>
+      <div className={frameClasses}>{props.children}</div>
     </Rnd>
   );
 };

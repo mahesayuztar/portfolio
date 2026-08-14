@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { FloatingActionButton } from "@/components/button/FloatingActionButton";
-import { Repeat } from "lucide-react";
 import { ModalProvider } from "@/context/ModalContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Mahesa Yuztar",
-  description: "Self Portfolio | Mahesa Yuztar",
+  title: "Mahesa Yuztar — Software Engineer",
+  description:
+    "Software Engineer and Fullstack Developer building web applications, backend systems, and practical digital products.",
   icons: {
     icon: "/icon.ico",
     shortcut: "/icon.ico",
@@ -33,9 +34,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-background text-ink">
         <ModalProvider>{children}</ModalProvider>
       </body>
     </html>
