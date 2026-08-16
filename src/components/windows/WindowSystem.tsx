@@ -5,7 +5,7 @@ import { journey } from "@/data/journey";
 import { projects } from "@/data/projects";
 import { contactEmail } from "@/data/social";
 import { TechLabel } from "@/components/ui/TechLabel";
-import { ArrowUpRight, GripHorizontal, RotateCcw, X } from "lucide-react";
+import { ArrowUpRight, ChevronRight, GripHorizontal, RotateCcw, X } from "lucide-react";
 import Image from "next/image";
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { Rnd } from "react-rnd";
@@ -116,8 +116,8 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
           <div><p className="text-sm text-accent">{project.category} · {project.year}</p><h3 className="mt-3 text-4xl font-medium tracking-[-0.04em]">{project.title}</h3></div>
           <p className="text-sm text-muted-ink">{project.role}</p>
         </div>
-        {project.mockups.length > 0 && (
-          <div className="mt-9">
+        <div className="mt-9">
+          {project.mockups.length > 0 ? (
             <div className="grid gap-4">
               {project.mockups.map((mockup) => (
                 <figure key={mockup.src} className="overflow-hidden rounded-md border border-border bg-surface">
@@ -125,8 +125,15 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
                 </figure>
               ))}
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="flex aspect-[16/9] items-end border border-border bg-surface p-5 sm:p-6">
+              <p className="flex items-center gap-2 text-sm font-medium text-ink">
+                See it for yourself
+                <ChevronRight size={16} aria-hidden />
+              </p>
+            </div>
+          )}
+        </div>
         <div className="mt-10 grid gap-8 border-t border-border pt-8 md:grid-cols-2">
           <div><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">Problem</p><p className="mt-3 text-sm leading-7 text-muted-ink">{project.problem}</p></div>
           <div><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">Contribution</p><p className="mt-3 text-sm leading-7 text-muted-ink">{project.solution}</p></div>
@@ -187,15 +194,15 @@ function WindowFrame({ windowItem, isActive, closeWindow, focusWindow, updateWin
   const title = getWindowTitle(windowItem);
   const content = (
     <section role={isMobile ? "dialog" : "region"} aria-modal={isMobile || undefined} aria-labelledby={`${windowItem.id}-title`} className={`flex h-full flex-col overflow-hidden rounded-[14px] border bg-window window-shadow ${isActive ? "border-border-strong" : "border-border"}`}>
-      <div className="window-handle flex min-h-12 shrink-0 cursor-grab items-center justify-between gap-4 border-b border-border bg-surface px-4 active:cursor-grabbing">
+      <div className="window-handle z-10 flex min-h-14 shrink-0 cursor-grab items-center justify-between gap-4 border-b border-border bg-surface px-4 active:cursor-grabbing md:min-h-12">
         <div className="flex min-w-0 items-center gap-3"><GripHorizontal size={15} className="shrink-0 text-faint-ink" aria-hidden /><h2 id={`${windowItem.id}-title`} className="truncate text-sm font-medium">{title}</h2></div>
-        <button type="button" onClick={() => closeWindow(windowItem.id)} className="flex size-8 shrink-0 items-center justify-center rounded-full text-muted-ink transition-colors hover:bg-surface-raised hover:text-ink" aria-label={`Close ${title}`}><X size={17} /></button>
+        <button type="button" onClick={() => closeWindow(windowItem.id)} className="flex size-11 shrink-0 items-center justify-center rounded-full text-muted-ink transition-colors hover:bg-surface-raised hover:text-ink md:size-8" aria-label={`Close ${title}`}><X size={18} /></button>
       </div>
-      <div className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-7"><WindowContent windowItem={windowItem} /></div>
+      <div className="min-h-0 flex-1 touch-pan-y overflow-y-auto overscroll-contain p-5 [-webkit-overflow-scrolling:touch] sm:p-7"><WindowContent windowItem={windowItem} /></div>
     </section>
   );
 
-  if (isMobile) return <div className="fixed inset-x-3 bottom-3 top-12 z-[1001] animate-[window-in_180ms_ease-out]">{content}</div>;
+  if (isMobile) return <div className="pointer-events-auto fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] top-[max(0.75rem,env(safe-area-inset-top))] z-[1001] min-h-0 animate-[window-in_180ms_ease-out]">{content}</div>;
 
   return (
     <Rnd bounds="window" dragHandleClassName="window-handle" size={{ width: windowItem.width, height: windowItem.height }} position={{ x: windowItem.x, y: windowItem.y }} minWidth={360} minHeight={280} maxWidth="94vw" maxHeight="88vh" style={{ zIndex: windowItem.zIndex, position: "fixed", pointerEvents: "auto" }} onMouseDown={() => focusWindow(windowItem.id)} onDragStart={() => focusWindow(windowItem.id)} onDragStop={(_event, data) => updateWindow(windowItem.id, { x: data.x, y: data.y })} onResizeStop={(_event, _direction, ref, _delta, position) => updateWindow(windowItem.id, { width: ref.offsetWidth, height: ref.offsetHeight, ...position })}>{content}</Rnd>
