@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, IBM_Plex_Sans } from "next/font/google";
+import { TouchFeedback } from "@/components/ui/TouchFeedback";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -16,7 +17,7 @@ const description =
   "Mahesa Yuztar is a software engineer in Malang building maintainable backend systems, fullstack products, and practical digital tools.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mahesayuztar.vercel.app"),
+  metadataBase: new URL("https://mahesa-yuztar.vercel.app"),
   title: "Mahesa Yuztar",
   description,
   openGraph: {
@@ -56,7 +57,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full bg-background text-ink">{children}</body>
+      <body className="min-h-full bg-background text-ink">
+        {children}
+        <TouchFeedback />
+      </body>
     </html>
   );
 }
