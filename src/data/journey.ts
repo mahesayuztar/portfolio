@@ -1,106 +1,59 @@
-import { JourneyItem } from "@/types/content";
+import type { JourneyItem } from "@/types/content";
 
 export const journey: JourneyItem[] = [
   {
-    id: "cs-start",
-    year: "2022",
-    title: "Started Computer Science",
-    summary:
-      "Began a Computer Science degree — the starting point for algorithms, data, and eventually robotics.",
-    whatHappened:
-      "Enrolled in a Computer Science program and started building a foundation in algorithms, data structures, and programming.",
-    whatIWorked: "Coursework in programming fundamentals, algorithms, and data structures.",
-    whatILearned: "How to think in systems, not just syntax.",
-    tech: ["Algorithms", "Programming Fundamentals"],
+    id: "solveit",
+    period: "Jul 2025 — Feb 2026",
+    title: "Backend Programmer",
+    organization: "Solveit.id",
+    summary: "Built and maintained client-facing Laravel systems across payments, CBT, APIs, and a major framework migration.",
+    whatHappened: "Worked across more than seven Laravel backend projects, turning client needs into maintainable production systems.",
+    whatIWorked: "Midtrans integrations, a complex CBT platform, RESTful API standards, and a Laravel 10 to 12 migration covering middleware and authentication.",
+    whatILearned: "Good backend work begins before implementation: clarify the operational need, then choose a solution the team can sustain.",
+    tech: ["Laravel", "REST APIs", "Midtrans", "MySQL"],
   },
   {
-    id: "teaching-assistant",
-    year: "2023",
-    title: "Teaching Assistant",
-    organization: "Algorithm & Programming",
-    summary: "Helped other students actually understand algorithms, not just pass the class.",
-    whatHappened:
-      "Assisted the algorithm & programming course, from grading to guiding students through debugging their own logic.",
-    whatIWorked:
-      "Guiding lab sessions, reviewing student code, explaining core programming concepts.",
-    whatILearned:
-      "Explaining a bug to someone else is a different skill than fixing it yourself — and it made me better at both.",
-    tech: ["Teaching", "Algorithms", "Programming"],
-  },
-  {
-    id: "robotics-uitm",
-    year: "2024",
-    title: "International Robotics Project",
-    organization: "UiTM Penang",
-    summary:
-      "Cross-country collaboration with teams from Malaysia, Japan, and Indonesia on a robot transporter project.",
-    whatHappened:
-      "Took part in an international robotics collaboration hosted with UiTM Penang, working across teams from different countries.",
-    whatIWorked:
-      "Led the technical side of the robot transporter team, coordinating across cross-country collaborators.",
-    whatILearned:
-      "Technical decisions move differently when the team is spread across countries and time zones.",
-    tech: ["Robotics", "Team Leadership", "Automation"],
-  },
-  {
-    id: "kri-finalist",
-    year: "2024",
-    title: "Finalist — KRI Humanoid Soccer Robot",
-    organization: "Kontes Robot Indonesia (KRSBI-H)",
-    summary: "Reached the finalist stage building a humanoid soccer robot for a national competition.",
-    whatHappened:
-      "Competed in Kontes Robot Indonesia's humanoid soccer robot category (KRSBI-H) and reached the finalist round.",
-    whatIWorked:
-      "Robot behavior, coordination logic, and hardware/software integration for the humanoid platform.",
-    whatILearned:
-      "Robots fail in ways code alone never does — hardware constraints force a different kind of problem solving.",
-    tech: ["Robotics", "EV3", "Automation", "Teamwork"],
-  },
-  {
-    id: "mcf-itb",
-    year: "2024",
-    title: "2nd Place — Data Science Competition",
-    organization: "MCF ITB",
-    summary: "Placed 2nd in a national data science competition hosted by ITB.",
-    whatHappened:
-      "Competed in the MCF ITB data science competition, working through a real dataset under time pressure.",
-    whatIWorked: "Data analysis, statistical modeling, and communicating findings clearly.",
-    whatILearned:
-      "Sometimes the answer really is hiding in the data — you just have to ask it the right question.",
-    tech: ["Python", "Statistics", "Data Analysis"],
-  },
-  {
-    id: "pln-intern",
-    year: "2025",
-    title: "IT Intern",
-    organization: "PLN Nusantara Power",
-    summary: "Worked around servers, networking, and industrial IT infrastructure.",
-    whatHappened:
-      "Interned on the IT team, working on server monitoring and network infrastructure in an industrial setting.",
-    whatIWorked: "Server monitoring, switch/hub setup, networking configuration, and troubleshooting.",
-    whatILearned: "Software doesn't mean much if the infrastructure underneath it isn't reliable.",
-    tech: ["Networking", "Server Monitoring", "Linux", "Troubleshooting"],
-  },
-  {
-    id: "teacher-grm",
-    year: "2025",
+    id: "teacher",
+    period: "Sep — Dec 2025",
     title: "Teacher",
-    organization: "Get Ready Malang",
-    summary: "Taught programming — turns out explaining code is its own kind of engineering.",
-    whatHappened: "Taught programming concepts to students at Get Ready Malang.",
-    whatIWorked: "Lesson planning, live coding sessions, and mentoring students through their own projects.",
-    whatILearned:
-      "Teaching made me better at explaining complicated things — a skill that carries straight into writing clearer code and clearer docs.",
+    organization: "Bimbingan Belajar Get Ready Malang",
+    summary: "Designed adaptive learning support for students balancing demanding schedules.",
+    whatHappened: "Mentored students who needed a focused way to recover missed academic ground.",
+    whatIWorked: "Individual learning plans, regular material evaluation, and clear explanations adapted to each student's pace.",
+    whatILearned: "Explaining difficult ideas is an engineering skill: listen first, identify the actual gap, and make the next step achievable.",
     tech: ["Teaching", "Mentoring", "Communication"],
   },
   {
-    id: "swe-professional",
-    year: "2026",
-    title: "Software Engineering, professionally",
-    summary: "Moved into professional software engineering work.",
-    whatHappened: "Started working professionally as a software engineer, building production software.",
-    whatIWorked: "Fullstack development across frontend, backend, and infrastructure.",
-    whatILearned: "Still learning — that's kind of the job.",
-    tech: ["Next.js", "TypeScript", "Laravel"],
+    id: "pln",
+    period: "Mar — Jun 2025",
+    title: "IT Intern",
+    organization: "PLN Nusantara Power UP Brantas",
+    summary: "Supported server monitoring and network infrastructure in an industrial energy environment.",
+    whatHappened: "Joined the IT team supporting infrastructure used around province-level power-generation operations.",
+    whatIWorked: "Server monitoring, switch and hub installation, network configuration, and infrastructure troubleshooting.",
+    whatILearned: "Reliable software depends on the physical and operational systems underneath it.",
+    tech: ["Networking", "Servers", "Troubleshooting"],
+  },
+  {
+    id: "uitm",
+    period: "Aug — Sep 2024",
+    title: "Robotic Delegate & Team Lead",
+    organization: "2nd Global Project Based Learning, UiTM Penang",
+    summary: "Led technical problem-solving in an international team building an automatic transporter robot.",
+    whatHappened: "Collaborated with participants from Malaysia, Japan, and Indonesia on a robot designed to navigate environmental obstacles.",
+    whatIWorked: "EV3 color and distance sensing, National Instruments tools, integration, troubleshooting, and cross-country team coordination.",
+    whatILearned: "A shared technical language matters when disciplines, cultures, and constraints meet in one prototype.",
+    tech: ["Robotics", "EV3", "Leadership"],
+  },
+  {
+    id: "assistant",
+    period: "Jan — Jun 2023",
+    title: "Teaching Assistant",
+    organization: "Algorithms & Programming, Universitas Negeri Malang",
+    summary: "Guided students through algorithms, C++, Python, and practical debugging.",
+    whatHappened: "Supported programming lab sessions and evaluated student assignments.",
+    whatIWorked: "Algorithm explanations, code review, technical feedback, and hands-on troubleshooting.",
+    whatILearned: "Helping someone find their own mistake builds deeper understanding than handing them the answer.",
+    tech: ["C++", "Python", "Algorithms"],
   },
 ];

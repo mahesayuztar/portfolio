@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type ContainerProps = {
   children: ReactNode;
@@ -6,10 +6,6 @@ type ContainerProps = {
   as?: "div" | "section" | "article" | "header" | "footer";
 };
 
-export function Container({ children, className = "", as: As = "div" }: ContainerProps) {
-  return (
-    <As className={`w-[min(100%-32px,1280px)] mx-auto ${className}`}>
-      {children}
-    </As>
-  );
+export function Container({ children, className = "", as: Component = "div" }: ContainerProps) {
+  return <Component className={`mx-auto w-[min(100%-40px,1180px)] ${className}`}>{children}</Component>;
 }

@@ -1,34 +1,13 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-type SectionHeadingProps = {
-  eyebrow?: string;
-  title: ReactNode;
-  subtitle?: ReactNode;
-  align?: "left" | "center";
-  className?: string;
-};
+type SectionHeadingProps = { eyebrow: string; title: ReactNode; subtitle?: ReactNode; className?: string };
 
-export function SectionHeading({
-  eyebrow,
-  title,
-  subtitle,
-  align = "left",
-  className = "",
-}: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, subtitle, className = "" }: SectionHeadingProps) {
   return (
-    <div className={`${align === "center" ? "text-center" : "text-left"} ${className}`}>
-      {eyebrow && (
-        <span className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-muted-ink">
-          <span aria-hidden>✦</span>
-          {eyebrow}
-        </span>
-      )}
-      <h2 className="text-[clamp(32px,4.5vw,52px)] leading-[1.1] font-semibold text-ink">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="mt-3 max-w-xl text-base text-muted-ink">{subtitle}</p>
-      )}
+    <div className={className}>
+      <p className="mb-4 font-heading text-xs uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
+      <h2 className="max-w-3xl text-balance text-[clamp(2rem,5vw,4.5rem)] font-medium leading-[0.98] tracking-[-0.04em] text-ink">{title}</h2>
+      {subtitle && <p className="mt-5 max-w-2xl text-base leading-7 text-muted-ink">{subtitle}</p>}
     </div>
   );
 }

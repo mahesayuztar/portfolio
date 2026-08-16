@@ -1,69 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  /* primary palette */
-  --background: #fbefef;
-  --surface: #ffe2e2;
-  --primary: #f5cbcb;
-  --secondary: #c5b3d3;
-
-  /* supporting palette */
-  --ink: #302b32;
-  --muted-ink: #6f646d;
-
-  --white: #fffdfc;
-
-  --purple-dark: #796a86;
-  --purple-soft: #e4d9ec;
-
-  --pink-dark: #b9878d;
-  --pink-soft: #f8dcdd;
-
-  --cream: #fff7ef;
-
-  --success: #a8b89a;
-
-  /* radius system */
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
-
-  /* border */
-  --border-width: 1.5px;
-  --border-color: var(--ink);
+  --background: #0d0f12;
+  --surface: #15181d;
+  --surface-raised: #1c2026;
+  --window: #111419;
+  --ink: #f0ede7;
+  --muted-ink: #999da6;
+  --faint-ink: #6d727c;
+  --accent: #b9c9a6;
+  --accent-strong: #d2e2bd;
+  --accent-ink: #182014;
+  --border-color: #30353e;
+  --border-strong: #68705f;
+  --overlay: rgb(5 7 9 / 78%);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-
+  --color-surface-raised: var(--surface-raised);
+  --color-window: var(--window);
   --color-ink: var(--ink);
   --color-muted-ink: var(--muted-ink);
-  --color-white: var(--white);
-
-  --color-purple-dark: var(--purple-dark);
-  --color-purple-soft: var(--purple-soft);
-  --color-pink-dark: var(--pink-dark);
-  --color-pink-soft: var(--pink-soft);
-  --color-cream: var(--cream);
-  --color-success: var(--success);
-
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-xl: var(--radius-xl);
-
+  --color-faint-ink: var(--faint-ink);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
+  --color-border: var(--border-color);
+  --color-border-strong: var(--border-strong);
   --font-heading: var(--font-space-grotesk);
   --font-sans: var(--font-plus-jakarta-sans);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
 body {
+  margin: 0;
   background: var(--background);
   color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+body[data-window-open="true"] {
+  overflow: hidden;
 }
 
 h1,
@@ -73,32 +63,66 @@ h4 {
   font-family: var(--font-heading), var(--font-sans), system-ui, sans-serif;
 }
 
-/* offset-shadow flat design utilities (no gradients, no blur-heavy shadows) */
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
 @layer utilities {
-  .border-ink {
-    border: var(--border-width) solid var(--ink);
+  .text-balance {
+    text-wrap: balance;
   }
 
-  .shadow-offset {
-    box-shadow: 5px 5px 0 var(--ink);
+  .section-rule {
+    border-top: 1px solid var(--border-color);
   }
 
-  .shadow-offset-soft {
-    box-shadow: 4px 4px 0 var(--secondary);
+  .window-shadow {
+    box-shadow: 0 24px 70px rgb(0 0 0 / 42%);
   }
+}
 
-  .shadow-offset-sm {
-    box-shadow: 3px 3px 0 var(--ink);
+@keyframes window-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  body[data-window-open="true"] {
+    overflow: hidden;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
   }
 }

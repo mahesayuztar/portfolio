@@ -1,4 +1,4 @@
-import { Project } from "@/types/content";
+import type { Project } from "@/types/content";
 
 export const projects: Project[] = [
   {
@@ -11,8 +11,6 @@ export const projects: Project[] = [
       "A CBT platform designed to reproduce the experience of real entrance exams.",
     longDescription:
       "Mentorin needed to reproduce the workflow of a real entrance exam while handling authentication, payment, timed testing, and result reporting. I built the application around those flows, using Laravel and MySQL for the application and Midtrans for payment.",
-    image: "https://placehold.co/1200x800/F5CBCB/302B32?text=Mentorin",
-    gallery: ["https://placehold.co/1200x800/F5CBCB/302B32?text=Mentorin"],
     role: "Fullstack Development",
     stack: ["Laravel", "MySQL", "Bootstrap", "jQuery", "Midtrans"],
     problem:
@@ -37,8 +35,6 @@ export const projects: Project[] = [
       "A complaint management platform designed to make reporting public issues easier for citizens.",
     longDescription:
       "Citizens needed a straightforward way to report public issues — with evidence attached and a way to track what happens next — instead of complaints disappearing into a phone call or a form nobody reads. I built the submission flow, the admin side that manages and responds to reports, and the authentication that ties both together.",
-    image: "https://placehold.co/1200x800/C5B3D3/302B32?text=Solusi+Desa",
-    gallery: ["https://placehold.co/1200x800/C5B3D3/302B32?text=Solusi+Desa"],
     role: "Fullstack Development",
     stack: ["Laravel", "MySQL", "Bootstrap", "jQuery"],
     problem:
@@ -62,8 +58,6 @@ export const projects: Project[] = [
       "A commercial website created to introduce and communicate the FruitGuard+ innovation.",
     longDescription:
       "FruitGuard+ needed a public-facing site that could clearly explain what the product does and why it matters, built to be fast and simple to deploy rather than over-engineered for a marketing page.",
-    image: "https://placehold.co/1200x800/FFE2E2/302B32?text=FruitGuard%2B",
-    gallery: ["https://placehold.co/1200x800/FFE2E2/302B32?text=FruitGuard%2B"],
     role: "Fullstack Development",
     stack: ["HTML", "Tailwind CSS", "jQuery", "Netlify"],
     problem:
@@ -86,8 +80,6 @@ export const projects: Project[] = [
       "A company platform combining company profile, certification registration, administration, and online payment.",
     longDescription:
       "The company needed one platform to present itself, manage certification registrations, run administration, and take payments — instead of stitching together separate disconnected tools.",
-    image: "https://placehold.co/1200x800/FBEFEF/302B32?text=Govind+Abra",
-    gallery: ["https://placehold.co/1200x800/FBEFEF/302B32?text=Govind+Abra"],
     role: "Fullstack Development",
     stack: [
       "Laravel",

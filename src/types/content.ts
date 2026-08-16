@@ -6,28 +6,18 @@ export interface Project {
   year: string;
   description: string;
   longDescription: string;
-
-  image: string;
-  gallery: string[];
-
   role: string;
-
   stack: string[];
-
   problem: string;
   solution: string;
-
   highlights: string[];
-
-  github?: string;
-  live?: string;
 }
 
 export interface JourneyItem {
   id: string;
-  year: string;
+  period: string;
   title: string;
-  organization?: string;
+  organization: string;
   summary: string;
   whatHappened: string;
   whatIWorked: string;
@@ -38,6 +28,7 @@ export interface JourneyItem {
 export interface SkillCategory {
   id: string;
   label: string;
+  description: string;
   items: string[];
 }
 
@@ -46,12 +37,16 @@ export interface Achievement {
   title: string;
   event: string;
   year: string;
+  context: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface Certificate {
   id: string;
   issuer: string;
   title: string;
+  year: string;
 }
 
 export interface SocialLink {
