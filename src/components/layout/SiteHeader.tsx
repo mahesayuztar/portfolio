@@ -31,7 +31,6 @@ export function SiteHeader() {
                 <X size={17} className="hidden group-open:block" aria-hidden />
               </summary>
               <nav aria-label="Mobile navigation" className="absolute right-0 top-12 w-[min(21rem,calc(100vw-40px))] rounded-md border border-border bg-window p-3 window-shadow">
-                <div className="flex items-center justify-between border-b border-border px-2 pb-3 pt-1"><span className="font-heading text-xs uppercase tracking-[0.18em] text-faint-ink">Navigation</span><span className="text-[10px] text-faint-ink">Explore</span></div>
                 <ul className="mt-1">
                   {navigationItems.map((item, _index) => (
                     <li key={item.href}>
@@ -43,7 +42,6 @@ export function SiteHeader() {
                     </li>
                   ))}
                 </ul>
-                <a href="mailto:mahesayuztar@gmail.com" className="mt-3 flex items-center justify-between rounded-md bg-surface px-4 py-3 text-xs text-muted-ink"><span>Start a conversation</span><span className="text-accent">Email ↗</span></a>
               </nav>
             </details>
           </div>

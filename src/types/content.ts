@@ -5,12 +5,10 @@ export interface Project {
   category: string;
   year: string;
   description: string;
-  longDescription: string;
   role: string;
   stack: string[];
   problem: string;
   solution: string;
-  highlights: string[];
   mockups: ProjectMockup[];
 }
 
@@ -27,14 +25,12 @@ export interface JourneyItem {
   summary: string;
   whatHappened: string;
   whatIWorked: string;
-  whatILearned: string;
   tech: string[];
 }
 
 export interface SkillCategory {
   id: string;
   label: string;
-  description: string;
   items: string[];
 }
 

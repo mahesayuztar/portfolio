@@ -9,7 +9,6 @@ export const journey: JourneyItem[] = [
     summary: "Built and maintained client-facing Laravel systems across payments, CBT, APIs, and a major framework migration.",
     whatHappened: "Worked across more than seven Laravel backend projects, turning client needs into maintainable production systems.",
     whatIWorked: "Midtrans integrations, a complex CBT platform, RESTful API standards, and a Laravel 10 to 12 migration covering middleware and authentication.",
-    whatILearned: "Good backend work begins before implementation: clarify the operational need, then choose a solution the team can sustain.",
     tech: ["Laravel", "REST APIs", "Midtrans", "MySQL"],
   },
   {
@@ -20,7 +19,6 @@ export const journey: JourneyItem[] = [
     summary: "Designed adaptive learning support for students balancing demanding schedules.",
     whatHappened: "Mentored students who needed a focused way to recover missed academic ground.",
     whatIWorked: "Individual learning plans, regular material evaluation, and clear explanations adapted to each student's pace.",
-    whatILearned: "Explaining difficult ideas is an engineering skill: listen first, identify the actual gap, and make the next step achievable.",
     tech: ["Teaching", "Mentoring", "Communication"],
   },
   {
@@ -31,7 +29,6 @@ export const journey: JourneyItem[] = [
     summary: "Supported server monitoring and network infrastructure in an industrial energy environment.",
     whatHappened: "Joined the IT team supporting infrastructure used around province-level power-generation operations.",
     whatIWorked: "Server monitoring, switch and hub installation, network configuration, and infrastructure troubleshooting.",
-    whatILearned: "Reliable software depends on the physical and operational systems underneath it.",
     tech: ["Networking", "Servers", "Troubleshooting"],
   },
   {
@@ -42,7 +39,6 @@ export const journey: JourneyItem[] = [
     summary: "Led technical problem-solving in an international team building an automatic transporter robot.",
     whatHappened: "Collaborated with participants from Malaysia, Japan, and Indonesia on a robot designed to navigate environmental obstacles.",
     whatIWorked: "EV3 color and distance sensing, National Instruments tools, integration, troubleshooting, and cross-country team coordination.",
-    whatILearned: "A shared technical language matters when disciplines, cultures, and constraints meet in one prototype.",
     tech: ["Robotics", "EV3", "Leadership"],
   },
   {
@@ -53,7 +49,6 @@ export const journey: JourneyItem[] = [
     summary: "Guided students through algorithms, C++, Python, and practical debugging.",
     whatHappened: "Supported programming lab sessions and evaluated student assignments.",
     whatIWorked: "Algorithm explanations, code review, technical feedback, and hands-on troubleshooting.",
-    whatILearned: "Helping someone find their own mistake builds deeper understanding than handing them the answer.",
     tech: ["C++", "Python", "Algorithms"],
   },
 ];
