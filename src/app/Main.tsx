@@ -19,8 +19,7 @@ export default function Main() {
         <section className="relative min-h-[calc(100svh-4rem)] py-16 sm:py-24">
           <Container className="grid min-h-[calc(100svh-12rem)] items-end gap-12 lg:grid-cols-[minmax(0,1fr)_17rem]">
             <div>
-              <p className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-ink"><span className="size-2 rounded-full bg-accent" />Software engineer · Malang, Indonesia</p>
-              <h1 className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,8.8rem)] font-medium leading-[0.84] tracking-[-0.065em]">Building useful systems from unclear problems.</h1>
+              <h1 className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">Building useful systems from unclear problems.</h1>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <Button href="#projects">Explore selected work <ArrowDown size={16} /></Button>
                 <WindowTrigger kind="profile" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-5 text-sm text-ink transition-colors hover:border-border-strong hover:bg-surface-raised">Open profile <MoveUpRight size={16} /></WindowTrigger>

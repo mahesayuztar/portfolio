@@ -1,5 +1,5 @@
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { Plus } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const navigationItems = [
@@ -25,29 +25,29 @@ export function SiteHeader() {
           <div className="ml-auto flex items-center gap-3 lg:ml-0">
             <a href="mailto:mahesayuztar@gmail.com" className="hidden text-xs text-accent transition-colors hover:text-accent-strong sm:block">Available for a conversation</a>
             <ThemeToggle />
+            <details className="mobile-navigation group relative">
+              <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-full border border-border bg-surface text-muted-ink transition-colors hover:border-border-strong hover:text-ink" aria-label="Toggle navigation menu">
+                <Menu size={17} className="group-open:hidden" aria-hidden />
+                <X size={17} className="hidden group-open:block" aria-hidden />
+              </summary>
+              <nav aria-label="Mobile navigation" className="absolute right-0 top-12 w-[min(21rem,calc(100vw-40px))] rounded-md border border-border bg-window p-3 window-shadow">
+                <div className="flex items-center justify-between border-b border-border px-2 pb-3 pt-1"><span className="font-heading text-xs uppercase tracking-[0.18em] text-faint-ink">Navigation</span><span className="text-[10px] text-faint-ink">Explore</span></div>
+                <ul className="mt-1">
+                  {navigationItems.map((item, _index) => (
+                    <li key={item.href}>
+                      <a href={item.href} className="group/link grid grid-cols-[2rem_1fr_auto] items-center gap-3 border-b border-border/70 py-3.5 text-ink transition-colors hover:text-accent">
+                        <span className="font-heading text-[10px] text-faint-ink">{String(_index + 1).padStart(2, "0")}</span>
+                        <span className="text-base font-medium tracking-[-0.015em]">{item.label}</span>
+                        <span className="text-sm text-faint-ink transition-transform group-hover/link:translate-x-1" aria-hidden>→</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a href="mailto:mahesayuztar@gmail.com" className="mt-3 flex items-center justify-between rounded-md bg-surface px-4 py-3 text-xs text-muted-ink"><span>Start a conversation</span><span className="text-accent">Email ↗</span></a>
+              </nav>
+            </details>
           </div>
         </div>
-
-        <details className="mobile-navigation group border-t border-border">
-          <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between text-xs uppercase tracking-[0.18em] text-muted-ink transition-colors hover:text-ink">
-            <span>Navigate</span>
-            <span className="flex items-center gap-2 normal-case tracking-normal"><span className="text-faint-ink group-open:hidden">Open menu</span><span className="hidden text-faint-ink group-open:inline">Close menu</span><Plus size={16} className="transition-transform duration-200 group-open:rotate-45" aria-hidden /></span>
-          </summary>
-          <nav aria-label="Mobile navigation" className="border-t border-border pb-4 pt-2">
-            <ul>
-              {navigationItems.map((item, _index) => (
-                <li key={item.href}>
-                  <a href={item.href} className="group/link grid grid-cols-[2rem_1fr_auto] items-center gap-3 border-b border-border/70 py-3.5 text-ink transition-colors hover:text-accent">
-                    <span className="font-heading text-[10px] text-faint-ink">{String(_index + 1).padStart(2, "0")}</span>
-                    <span className="text-base font-medium tracking-[-0.015em]">{item.label}</span>
-                    <span className="text-sm text-faint-ink transition-transform group-hover/link:translate-x-1" aria-hidden>→</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a href="mailto:mahesayuztar@gmail.com" className="mt-4 flex items-center justify-between rounded-md bg-surface px-4 py-3 text-xs text-muted-ink"><span>Start a conversation</span><span className="text-accent">Email ↗</span></a>
-          </nav>
-        </details>
       </div>
     </header>
   );
