@@ -125,6 +125,28 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+.desktop-navigation {
+  display: none;
+}
+
+.mobile-navigation {
+  display: block;
+}
+
+.mobile-navigation summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktop-navigation {
+    display: block;
+  }
+
+  .mobile-navigation {
+    display: none;
+  }
+}
+
 button {
   font: inherit;
 }
