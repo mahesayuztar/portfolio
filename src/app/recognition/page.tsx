@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
 import { achievements, certificates } from "@/data/achievements";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -17,7 +18,7 @@ export default function RecognitionPage() {
         <div className="mx-auto w-[min(100%-40px,1180px)]">
           <Link href="/" className="text-xs text-muted-ink hover:text-ink">← Back to profile</Link>
           <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_0.6fr] lg:items-end">
-            <div><p className="font-heading text-xs uppercase tracking-[0.2em] text-accent">Recognition archive</p><h1 className="mt-5 max-w-4xl text-balance text-[clamp(3.5rem,9vw,8rem)] font-medium leading-[0.86] tracking-[-0.065em]">Results, and the work behind them.</h1></div>
+            <div><p className="font-heading text-xs uppercase tracking-[0.2em] text-accent">Recognition archive</p><CursorRevealHeading className="mt-5 max-w-4xl text-balance text-[clamp(3.5rem,9vw,8rem)] font-medium leading-[0.86] tracking-[-0.065em]">Results, and the work behind them.</CursorRevealHeading></div>
             <p className="border-l border-border pl-5 text-sm leading-7 text-muted-ink">This is a secondary record, intentionally kept away from the main profile. The result matters, but the more useful story is what each arena trained: analysis, integration, partnership, and composure.</p>
           </div>
         </div>

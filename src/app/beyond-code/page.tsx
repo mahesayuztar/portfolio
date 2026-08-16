@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +20,7 @@ export default function BeyondCodePage() {
     <main>
       <SiteHeader />
       <section className="py-20 sm:py-28">
-        <div className="mx-auto w-[min(100%-40px,1180px)]"><Link href="/" className="text-xs text-muted-ink hover:text-ink">← Back to profile</Link><div className="mt-14 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end"><div><p className="font-heading text-xs uppercase tracking-[0.2em] text-accent">Beyond code</p><h1 className="mt-5 text-balance text-[clamp(3.5rem,9vw,8rem)] font-medium leading-[0.86] tracking-[-0.065em]">The other places I learned to build.</h1></div><p className="max-w-xl text-base leading-8 text-muted-ink">A quieter part of the site about robots, classrooms, card tables, and teams across countries—the experiences that shaped how I approach technical work without needing to lead the main profile.</p></div></div>
+        <div className="mx-auto w-[min(100%-40px,1180px)]"><Link href="/" className="text-xs text-muted-ink hover:text-ink">← Back to profile</Link><div className="mt-14 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end"><div><p className="font-heading text-xs uppercase tracking-[0.2em] text-accent">Beyond code</p><CursorRevealHeading className="mt-5 text-balance text-[clamp(3.5rem,9vw,8rem)] font-medium leading-[0.86] tracking-[-0.065em]">The other places I learned to build.</CursorRevealHeading></div><p className="max-w-xl text-base leading-8 text-muted-ink">A quieter part of the site about robots, classrooms, card tables, and teams across countries—the experiences that shaped how I approach technical work without needing to lead the main profile.</p></div></div>
       </section>
 
       <section className="section-rule py-20 sm:py-28">

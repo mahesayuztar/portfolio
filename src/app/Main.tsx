@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { WindowProvider, WindowTrigger } from "@/components/windows/WindowSystem";
 import { journey } from "@/data/journey";
@@ -17,17 +18,22 @@ export default function Main() {
         <SiteHeader />
 
         <section className="relative min-h-[calc(100svh-4rem)] py-16 sm:py-24">
-          <Container className="grid min-h-[calc(100svh-12rem)] items-end gap-12 lg:grid-cols-[minmax(0,1fr)_17rem]">
-            <div>
-              <h1 className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">Building useful systems from unclear problems.</h1>
+          <Container className="grid min-h-[calc(100svh-12rem)] items-stretch gap-12 lg:-translate-y-5 lg:grid-cols-[minmax(0,1fr)_17rem]">
+            <div className="flex flex-col justify-center">
+              <CursorRevealHeading className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">Building useful systems from unclear problems.</CursorRevealHeading>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <Button href="#projects">Explore selected work <ArrowDown size={16} /></Button>
                 <WindowTrigger kind="profile" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-5 text-sm text-ink transition-colors hover:border-border-strong hover:bg-surface-raised">Open profile <MoveUpRight size={16} /></WindowTrigger>
               </div>
             </div>
-            <div className="border-l border-border pl-5">
-              <p className="text-sm leading-7 text-muted-ink">Backend depth, fullstack range, and a working style shaped by client systems, teaching, data, and robotics.</p>
-              <p className="mt-5 text-xs text-faint-ink">The detail views on this site are real windows. Open one, move it, close it, and continue reading.</p>
+            <div className="flex">
+              <div className="mt-auto">
+                <div className="border-l border-border pl-5"><p className="text-sm leading-7 text-muted-ink">Backend depth, fullstack range, and a working style shaped by client systems, teaching, data, and robotics.</p>
+                <p className="mt-5 text-xs text-faint-ink">The detail views on this site are real windows. Open one, move it, close it, and continue reading.</p>
+
+                
+                </div>
+              </div>
             </div>
           </Container>
         </section>
@@ -86,8 +92,8 @@ export default function Main() {
 
         <section id="contact" className="section-rule py-24 sm:py-36">
           <Container>
-            <p className="font-heading text-xs uppercase tracking-[0.2em] text-accent">05 / Contact</p>
-            <h2 className="mt-5 max-w-5xl text-balance text-[clamp(3rem,8vw,7.5rem)] font-medium leading-[0.9] tracking-[-0.06em]">Have a problem worth giving a clear shape?</h2>
+            <p className="font-heading text-xs uppercase tracking-[0.2em] text-accent pb-5">05 / Contact</p>
+            <CursorRevealHeading className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">Have a problem worth giving a clear shape?</CursorRevealHeading>
             <div className="mt-10 flex flex-wrap gap-3"><Button href={`mailto:${contactEmail}`}>Email Mahesa <ArrowUpRight size={16} /></Button><WindowTrigger kind="contact" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-5 text-sm hover:border-border-strong hover:bg-surface-raised">Open contact window</WindowTrigger></div>
           </Container>
         </section>
