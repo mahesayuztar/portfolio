@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { WindowProvider, WindowTrigger } from "@/components/windows/WindowSystem";
 import { achievements } from "@/data/achievements";
 import { journey } from "@/data/journey";
@@ -29,7 +30,10 @@ export default function Main() {
             <nav aria-label="Primary navigation" className="hidden md:block">
               <ul className="flex items-center gap-6">{navigationItems.map((item) => <li key={item.href}><a href={item.href} className="text-xs text-muted-ink transition-colors hover:text-ink">{item.label}</a></li>)}</ul>
             </nav>
-            <a href={`mailto:${contactEmail}`} className="text-xs text-accent transition-colors hover:text-accent-strong">Available for a conversation</a>
+            <div className="flex items-center gap-3">
+              <a href={`mailto:${contactEmail}`} className="hidden text-xs text-accent transition-colors hover:text-accent-strong sm:block">Available for a conversation</a>
+              <ThemeToggle />
+            </div>
           </Container>
         </header>
 

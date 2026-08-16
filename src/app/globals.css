@@ -1,22 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0d0f12;
-  --surface: #15181d;
-  --surface-raised: #1c2026;
-  --window: #111419;
-  --ink: #f0ede7;
-  --muted-ink: #999da6;
-  --faint-ink: #6d727c;
-  --accent: #b9c9a6;
-  --accent-strong: #d2e2bd;
-  --accent-ink: #182014;
-  --border-color: #30353e;
-  --border-strong: #68705f;
-  --overlay: rgb(5 7 9 / 78%);
+  color-scheme: light;
+  --background: #fbefef;
+  --surface: #ffe2e2;
+  --primary: #f5cbcb;
+  --secondary: #c5b3d3;
+  --ink: #302b32;
+  --muted-ink: #6f646d;
+  --white: #fffdfc;
+  --purple-dark: #796a86;
+  --purple-soft: #e4d9ec;
+  --pink-dark: #b9878d;
+  --pink-soft: #f8dcdd;
+  --cream: #fff7ef;
+  --success: #a8b89a;
+  --surface-raised: var(--pink-soft);
+  --window: var(--white);
+  --faint-ink: #8f818b;
+  --accent: var(--purple-dark);
+  --accent-strong: #63556f;
+  --accent-ink: var(--white);
+  --border-color: #d8c1c6;
+  --border-strong: var(--purple-dark);
+  --overlay: rgb(48 43 50 / 58%);
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #171319;
+  --surface: #211a22;
+  --primary: #6f4f55;
+  --secondary: #51435c;
+  --ink: #fff7ef;
+  --muted-ink: #cbbbc5;
+  --white: #2a222a;
+  --purple-dark: #b8a3c7;
+  --purple-soft: #3b3042;
+  --pink-dark: #d4a0a6;
+  --pink-soft: #3a292d;
+  --cream: #2d2724;
+  --success: #b9c9a8;
+  --surface-raised: #2b232d;
+  --window: #1c171e;
+  --faint-ink: #93838e;
+  --accent: var(--purple-dark);
+  --accent-strong: #d7b0b5;
+  --accent-ink: #171319;
+  --border-color: #493b49;
+  --border-strong: #8e7898;
+  --overlay: rgb(10 7 11 / 78%);
 }
 
 @theme inline {
@@ -24,6 +60,8 @@
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
   --color-window: var(--window);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --color-ink: var(--ink);
   --color-muted-ink: var(--muted-ink);
   --color-faint-ink: var(--faint-ink);
@@ -32,6 +70,13 @@
   --color-accent-ink: var(--accent-ink);
   --color-border: var(--border-color);
   --color-border-strong: var(--border-strong);
+  --color-white: var(--white);
+  --color-purple-dark: var(--purple-dark);
+  --color-purple-soft: var(--purple-soft);
+  --color-pink-dark: var(--pink-dark);
+  --color-pink-soft: var(--pink-soft);
+  --color-cream: var(--cream);
+  --color-success: var(--success);
   --font-heading: var(--font-space-grotesk);
   --font-sans: var(--font-plus-jakarta-sans);
 }
@@ -50,6 +95,13 @@ body {
   background: var(--background);
   color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+body,
+header,
+section,
+footer {
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 body[data-window-open="true"] {

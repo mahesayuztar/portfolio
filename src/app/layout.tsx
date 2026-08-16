@@ -16,5 +16,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} h-full antialiased`}><body className="min-h-full bg-background text-ink">{children}</body></html>;
+  const themeScript = `(() => { try { const saved = localStorage.getItem("portfolio-theme"); const theme = saved === "light" || saved === "dark" ? saved : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = theme; } catch { document.documentElement.dataset.theme = "light"; } })();`;
+
+  return (
+    <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} h-full antialiased`}>
+      <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
+      <body className="min-h-full bg-background text-ink">{children}</body>
+    </html>
+  );
 }
