@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   title: "Beyond Code | Mahesa Yuztar",
   description:
     "Robotics, teaching, bridge, and international collaboration in Mahesa Yuztar's wider story.",
+  alternates: { canonical: "/beyond-code" },
+  openGraph: {
+    title: "Beyond Code | Mahesa Yuztar",
+    description:
+      "Robotics, teaching, bridge, and international collaboration in Mahesa Yuztar's wider story.",
+    url: "/beyond-code",
+  },
+  robots: { index: true, follow: true },
 };
 
 const chapters = [

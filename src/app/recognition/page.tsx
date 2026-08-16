@@ -8,6 +8,13 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Recognition | Mahesa Yuztar",
   description: "Selected competition results, technical recognition, and continued learning from Mahesa Yuztar.",
+  alternates: { canonical: "/recognition" },
+  openGraph: {
+    title: "Recognition | Mahesa Yuztar",
+    description: "Selected competition results, technical recognition, and continued learning from Mahesa Yuztar.",
+    url: "/recognition",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RecognitionPage() {
