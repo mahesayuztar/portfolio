@@ -264,7 +264,11 @@ export function WindowProvider({ children }: { children: ReactNode }) {
     <WindowContext.Provider value={{ openWindow }}>
       {children}
       {windows.length > 0 && <div className={`fixed inset-0 z-[999] ${isMobile ? "bg-[var(--overlay)]" : "pointer-events-none"}`} aria-hidden />}
-      <div className="fixed inset-0 z-[1000] pointer-events-none" aria-live="polite">{windows.map((windowItem) => <WindowFrame key={windowItem.id} windowItem={windowItem} isActive={activeWindow?.id === windowItem.id} closeWindow={closeWindow} focusWindow={focusWindow} updateWindow={updateWindow} isMobile={isMobile} />)}</div>
+      <div className="fixed inset-0 z-[1000] pointer-events-none" aria-live="polite">
+        {windows
+          .filter((windowItem) => !isMobile || windowItem.id === activeWindow?.id)
+          .map((windowItem) => <WindowFrame key={windowItem.id} windowItem={windowItem} isActive={activeWindow?.id === windowItem.id} closeWindow={closeWindow} focusWindow={focusWindow} updateWindow={updateWindow} isMobile={isMobile} />)}
+      </div>
       {!isMobile && windows.length > 1 && <button type="button" onClick={() => setWindows([])} className="fixed bottom-5 right-5 z-[2000] inline-flex min-h-10 items-center gap-2 rounded-full border border-border bg-surface px-4 text-xs text-muted-ink shadow-lg hover:text-ink"><RotateCcw size={14} />Close workspace</button>}
     </WindowContext.Provider>
   );
