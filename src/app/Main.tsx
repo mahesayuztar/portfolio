@@ -119,7 +119,7 @@ export default function Main() {
           <Container>
             <SectionHeading
               eyebrow="03 / Selected projects"
-              title="Selected systems."
+              title="I’ve built a few things worth showing."
             />
             <div className="mt-16 space-y-4">
               {projects.map((project) => (
