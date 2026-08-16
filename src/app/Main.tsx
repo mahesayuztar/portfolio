@@ -1,9 +1,9 @@
 import { Container } from "@/components/layout/Container";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TechLabel } from "@/components/ui/TechLabel";
 import { WindowProvider, WindowTrigger } from "@/components/windows/WindowSystem";
 import { journey } from "@/data/journey";
 import { projects } from "@/data/projects";
@@ -73,7 +73,7 @@ export default function Main() {
                 <article key={project.slug} className="group grid gap-8 border border-border bg-background p-6 transition-colors hover:border-border-strong sm:p-8 lg:grid-cols-[5rem_1fr_1fr_auto] lg:items-start">
                   <span className="font-heading text-sm text-accent">{project.index}</span>
                   <div><p className="text-xs text-muted-ink">{project.category} · {project.year}</p><h3 className="mt-3 text-3xl font-medium tracking-[-0.035em]">{project.title}</h3></div>
-                  <div><p className="text-sm leading-7 text-muted-ink">{project.description}</p><div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">{project.stack.slice(0, 4).map((technology) => <Badge key={technology}>{technology}</Badge>)}</div></div>
+                  <div><p className="text-sm leading-7 text-muted-ink">{project.description}</p><div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">{project.stack.slice(0, 4).map((technology) => <TechLabel key={technology} technology={technology} />)}</div></div>
                   <WindowTrigger kind="project" contentId={project.slug} ariaLabel={`Open ${project.title} case study`} className="flex size-12 items-center justify-center rounded-full border border-border text-muted-ink transition-all group-hover:border-border-strong group-hover:text-ink"><ArrowUpRight size={18} /></WindowTrigger>
                 </article>
               ))}
@@ -85,7 +85,7 @@ export default function Main() {
           <Container>
             <SectionHeading eyebrow="04 / Capabilities" title="Tools connected to work performed." />
             <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-4">
-              {skillCategories.map((category) => <article key={category.id} className="border-b border-border p-6 sm:border-r"><h3 className="text-lg font-medium">{category.label}</h3><p className="mt-3 min-h-20 text-sm leading-6 text-muted-ink">{category.description}</p><ul className="mt-6 space-y-2">{category.items.map((item) => <li key={item} className="text-sm text-ink">{item}</li>)}</ul></article>)}
+              {skillCategories.map((category) => <article key={category.id} className="border-b border-border p-6 sm:border-r"><h3 className="text-lg font-medium">{category.label}</h3><p className="mt-3 min-h-20 text-sm leading-6 text-muted-ink">{category.description}</p><ul className="mt-6 space-y-2">{category.items.map((item) => <li key={item}><TechLabel technology={item} variant="list" /></li>)}</ul></article>)}
             </div>
           </Container>
         </section>

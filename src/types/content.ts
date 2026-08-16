@@ -11,6 +11,12 @@ export interface Project {
   problem: string;
   solution: string;
   highlights: string[];
+  mockups: ProjectMockup[];
+}
+
+export interface ProjectMockup {
+  src: string;
+  alt: string;
 }
 
 export interface JourneyItem {

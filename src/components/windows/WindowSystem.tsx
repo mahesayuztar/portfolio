@@ -4,7 +4,8 @@ import { achievements, certificates } from "@/data/achievements";
 import { journey } from "@/data/journey";
 import { projects } from "@/data/projects";
 import { contactEmail } from "@/data/social";
-import { ArrowUpRight, GripHorizontal, RotateCcw, X } from "lucide-react";
+import { TechLabel } from "@/components/ui/TechLabel";
+import { ArrowUpRight, GripHorizontal, ImageIcon, RotateCcw, X } from "lucide-react";
 import Image from "next/image";
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { Rnd } from "react-rnd";
@@ -103,7 +104,7 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
           <div><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">Work</p><p className="mt-2 text-sm leading-7 text-muted-ink">{item.whatIWorked}</p></div>
           <div><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">What stayed with me</p><p className="mt-2 text-sm leading-7 text-ink">{item.whatILearned}</p></div>
         </div>
-        <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2">{item.tech.map((technology) => <span key={technology} className="text-xs text-accent">{technology}</span>)}</div>
+        <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2">{item.tech.map((technology) => <TechLabel key={technology} technology={technology} />)}</div>
       </article>
     );
   }
@@ -118,12 +119,33 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
           <p className="text-sm text-muted-ink">{project.role}</p>
         </div>
         <p className="mt-7 max-w-2xl text-base leading-8 text-muted-ink">{project.longDescription}</p>
+        <div className="mt-9">
+          {project.mockups.length > 0 ? (
+            <div className="grid gap-4">
+              {project.mockups.map((mockup, _index) => (
+                <figure key={mockup.src} className="overflow-hidden rounded-md border border-border bg-surface">
+                  <div className="flex items-center justify-between border-b border-border px-4 py-3"><span className="text-xs text-muted-ink">Visual study {String(_index + 1).padStart(2, "0")}</span><span className="text-[10px] uppercase tracking-[0.16em] text-faint-ink">Project mockup</span></div>
+                  <Image src={mockup.src} alt={mockup.alt} width={1440} height={900} className="aspect-[16/10] w-full object-cover" />
+                </figure>
+              ))}
+            </div>
+          ) : (
+            <div className="overflow-hidden rounded-md border border-border bg-surface">
+              <div className="flex items-center justify-between border-b border-border px-4 py-3"><span className="text-xs text-muted-ink">Visual study 01</span><span className="text-[10px] uppercase tracking-[0.16em] text-faint-ink">Reserved for mockup</span></div>
+              <div className="flex aspect-[16/9] flex-col items-center justify-center px-6 text-center">
+                <span className="flex size-10 items-center justify-center rounded-full border border-border bg-background text-accent"><ImageIcon size={17} aria-hidden /></span>
+                <p className="mt-4 text-sm font-medium text-ink">Project interface or product mockup</p>
+                <p className="mt-2 max-w-md font-mono text-[10px] leading-5 text-faint-ink">/public/images/projects/{project.slug}/mockup-01.webp</p>
+              </div>
+            </div>
+          )}
+        </div>
         <div className="mt-10 grid gap-8 border-t border-border pt-8 md:grid-cols-2">
           <div><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">Problem</p><p className="mt-3 text-sm leading-7 text-muted-ink">{project.problem}</p></div>
           <div><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">Approach</p><p className="mt-3 text-sm leading-7 text-muted-ink">{project.solution}</p></div>
         </div>
         <div className="mt-9"><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">Selected scope</p><ul className="mt-4 grid gap-3 sm:grid-cols-2">{project.highlights.map((highlight) => <li key={highlight} className="border-l border-border-strong pl-3 text-sm text-ink">{highlight}</li>)}</ul></div>
-        <div className="mt-9 flex flex-wrap gap-x-5 gap-y-2">{project.stack.map((technology) => <span key={technology} className="text-xs text-accent">{technology}</span>)}</div>
+        <div className="mt-9 flex flex-wrap gap-x-5 gap-y-2">{project.stack.map((technology) => <TechLabel key={technology} technology={technology} />)}</div>
       </article>
     );
   }

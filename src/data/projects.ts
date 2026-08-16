@@ -24,6 +24,7 @@ export const projects: Project[] = [
       "Authentication & payment via Midtrans",
       "VPS deployment",
     ],
+    mockups: [],
   },
   {
     slug: "solusi-desa",
@@ -47,6 +48,7 @@ export const projects: Project[] = [
       "Integrated admin system",
       "Authentication",
     ],
+    mockups: [],
   },
   {
     slug: "fruitguard-plus",
@@ -69,6 +71,7 @@ export const projects: Project[] = [
       "Clear product information architecture",
       "Commercial landing experience",
     ],
+    mockups: [],
   },
   {
     slug: "govind-abra-enterprise",
@@ -99,5 +102,6 @@ export const projects: Project[] = [
       "Admin panel",
       "Automated payment via Midtrans",
     ],
+    mockups: [],
   },
 ];
