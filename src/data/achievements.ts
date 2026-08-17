@@ -2,12 +2,23 @@ import type { Achievement, Certificate } from "@/types/content";
 
 export const achievements: Achievement[] = [
   {
+    id: "btc-open-2026",
+    title: "2nd Place — Junior Team",
+    event: "3rd BTC International Bridge Open Tournament",
+    year: "2026",
+    context:
+      "Earned second place in the Junior Team category, applying partnership coordination, probabilistic reasoning, and disciplined decision-making throughout a competitive bridge tournament.",
+    image: "/images/recognition/bridge-1-achievement_11zon.webp",
+    imageAlt:
+      "Certificate awarding Mahesa Yuztar second place in the Junior Team category at the 3rd BTC Bridge Open Tournament 2026",
+  },
+  {
     id: "mcf-itb",
     title: "2nd Place",
     event: "Data Science Competition — MCF ITB",
     year: "2024",
     context: "Worked with a team to turn an unfamiliar dataset into a clear analytical argument under competition pressure.",
-    image: "/images/mcf-itb.jpg",
+    image: "/images/recognition/mcf-itb_8_11zon.webp",
     imageAlt: "Mahesa and his team holding the second-place award at MCF ITB 2024",
   },
   {

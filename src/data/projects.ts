@@ -2,6 +2,51 @@ import type { Project } from "@/types/content";
 
 export const projects: Project[] = [
   {
+  slug: "sisgo-erp",
+  index: "05",
+  title: "SISGO ERP",
+  category: "Enterprise Resource Planning",
+  year: "2026",
+  description:
+    "Integrated ERP platform covering finance, sales, procurement, inventory, and other enterprise operations.",
+  role: "Software Engineer — Financial Business Logic & ERP Development",
+  stack: [
+    "Laravel",
+    "Next.js",
+    "PostgreSQL",
+    "SQL Server",
+    "DataGrip",
+  ],
+  problem:
+    "Complex enterprise operations required financial, inventory, sales, and procurement processes to remain synchronized while maintaining accounting consistency across interconnected modules.",
+  solution:
+    "Developed and maintained ERP business logic with a primary focus on financial systems including general ledger, accounts receivable, balance sheets, automatic journal posting, inventory costing (HPP), and transaction flows across sales, procurement, inventory, and other operational modules.",
+  mockups: [],
+  internal: true,
+},
+{
+  slug: "sisgo-website-builder",
+  index: "06",
+  title: "SISGO Website Builder",
+  category: "Platform / Website Builder",
+  year: "2026",
+  description:
+    "Scalable website-building platform designed around reusable packages and extensible components.",
+  role: "Software Engineer — Architecture & Platform Development",
+  stack: [
+    "Laravel",
+    "Next.js",
+    "React",
+    "PostgreSQL",
+  ],
+  problem:
+    "Building and maintaining multiple websites independently created duplicated implementations and made features increasingly difficult to reuse, distribute, and scale.",
+  solution:
+    "Designed a reusable website-builder architecture centered on scalability, package-based functionality, shared components, and modular development so features can be developed once and reused across multiple websites.",
+  mockups: [],
+  internal: true,
+},
+  {
     slug: "mentorin",
     index: "01",
     title: "Mentorin",

@@ -5,8 +5,8 @@ import { journey } from "@/data/journey";
 import { projects } from "@/data/projects";
 import { contactEmail } from "@/data/social";
 import { TechLabel } from "@/components/ui/TechLabel";
-import { ArrowUpRight, ChevronRight, GripHorizontal, RotateCcw, X } from "lucide-react";
-import Image from "next/image";
+import { ResilientImage } from "@/components/ui/ResilientImage";
+import { ArrowUpRight, GripHorizontal, LockKeyhole, RotateCcw, X } from "lucide-react";
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { Rnd } from "react-rnd";
 
@@ -42,15 +42,24 @@ const windowDefaults: Record<WindowKind, { width: number; height: number }> = {
   contact: { width: 480, height: 340 },
 };
 
-function useIsMobile() {
+function useMobileWindowMode() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
-    const update = () => setIsMobile(mediaQuery.matches);
+    const update = () => {
+      const hasSmallPhysicalScreen = Math.min(window.screen.width, window.screen.height) <= 767;
+      setIsMobile(mediaQuery.matches || hasSmallPhysicalScreen);
+    };
     update();
     mediaQuery.addEventListener("change", update);
-    return () => mediaQuery.removeEventListener("change", update);
+    window.addEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+    return () => {
+      mediaQuery.removeEventListener("change", update);
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
   }, []);
 
   return isMobile;
@@ -114,6 +123,12 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
       <article>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div><p className="text-sm text-accent">{project.category} · {project.year}</p><h3 className="mt-3 text-4xl font-medium tracking-[-0.04em]">{project.title}</h3></div>
+          {project.internal && (
+            <p className="inline-flex items-center gap-2 border border-border bg-surface px-3 py-2 text-xs text-muted-ink">
+              <LockKeyhole size={14} aria-hidden />
+              Internal project · visual details are private
+            </p>
+          )}
           <p className="text-sm text-muted-ink">{project.role}</p>
         </div>
         <div className="mt-9">
@@ -121,18 +136,15 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
             <div className="grid gap-4">
               {project.mockups.map((mockup) => (
                 <figure key={mockup.src} className="overflow-hidden rounded-md border border-border bg-surface">
-                  <Image src={mockup.src} alt={mockup.alt} width={1440} height={900} className="aspect-[16/10] w-full object-cover" />
+                  <ResilientImage src={mockup.src} alt={mockup.alt} width={1440} height={900} className="aspect-[16/10] w-full object-cover" />
                 </figure>
               ))}
             </div>
-          ) : (
+          ) : !project.internal ? (
             <div className="flex aspect-[16/9] items-end border border-border bg-surface p-5 sm:p-6">
-              <p className="flex items-center gap-2 text-sm font-medium text-ink">
-                See it for yourself
-                <ChevronRight size={16} aria-hidden />
-              </p>
+              <p className="text-sm font-medium text-ink">Visual preview coming soon</p>
             </div>
-          )}
+          ) : null}
         </div>
         <div className="mt-10 grid gap-8 border-t border-border pt-8 md:grid-cols-2">
           <div><p className="text-xs uppercase tracking-[0.15em] text-faint-ink">Problem</p><p className="mt-3 text-sm leading-7 text-muted-ink">{project.problem}</p></div>
@@ -148,7 +160,7 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
     if (!achievement) return null;
     return (
       <article>
-        {achievement.image && achievement.imageAlt && <Image src={achievement.image} alt={achievement.imageAlt} width={1200} height={900} className="mb-7 aspect-[4/3] w-full rounded-md object-cover" />}
+        {achievement.image && achievement.imageAlt && <ResilientImage src={achievement.image} alt={achievement.imageAlt} width={1200} height={900} className="mb-7 aspect-[4/3] w-full rounded-md object-cover" />}
         <p className="text-sm text-accent">{achievement.year}</p>
         <h3 className="mt-2 text-3xl font-medium tracking-[-0.03em]">{achievement.title}</h3>
         <p className="mt-2 text-sm text-muted-ink">{achievement.event}</p>
@@ -172,8 +184,8 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
     return (
       <div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Image src="/images/mahesa-robotics.jpg" alt="Mahesa speaking while wearing his humanoid robotics team uniform" width={900} height={1200} className="aspect-[4/5] w-full rounded-md object-cover object-top" />
-          <Image src="/images/uitm-gpbl.jpg" alt="Mahesa receiving recognition at the UiTM Penang Global Project Based Learning program" width={1200} height={1600} className="aspect-[4/5] w-full rounded-md object-cover" />
+          <ResilientImage src="/images/beyond-code/mahesa-robotics_5_11zon_22_11zon.webp" alt="Mahesa speaking while wearing his humanoid robotics team uniform" width={900} height={1200} className="aspect-[4/5] w-full rounded-md object-cover object-top" />
+          <ResilientImage src="/images/beyond-code/uitm-gpbl_3_11zon_17_11zon.webp" alt="Mahesa receiving recognition at the UiTM Penang Global Project Based Learning program" width={1200} height={1600} className="aspect-[4/5] w-full rounded-md object-cover" />
         </div>
         <h3 className="mt-8 text-3xl font-medium tracking-[-0.03em]">Software is only one way I solve problems.</h3>
         <p className="mt-4 text-sm leading-7 text-muted-ink">Robotics taught me to debug systems that can fail physically. Teaching trained me to make difficult ideas approachable. Competitive bridge sharpened strategic thinking with incomplete information. International collaboration made communication part of the technical work itself.</p>
@@ -196,7 +208,7 @@ function WindowFrame({ windowItem, isActive, closeWindow, focusWindow, updateWin
     <section role={isMobile ? "dialog" : "region"} aria-modal={isMobile || undefined} aria-labelledby={`${windowItem.id}-title`} className={`flex h-full flex-col overflow-hidden rounded-[14px] border bg-window window-shadow ${isActive ? "border-border-strong" : "border-border"}`}>
       <div className="window-handle z-10 flex min-h-14 shrink-0 cursor-grab items-center justify-between gap-4 border-b border-border bg-surface px-4 active:cursor-grabbing md:min-h-12">
         <div className="flex min-w-0 items-center gap-3"><GripHorizontal size={15} className="shrink-0 text-faint-ink" aria-hidden /><h2 id={`${windowItem.id}-title`} className="truncate text-sm font-medium">{title}</h2></div>
-        <button type="button" onClick={() => closeWindow(windowItem.id)} className="flex size-11 shrink-0 items-center justify-center rounded-full text-muted-ink transition-colors hover:bg-surface-raised hover:text-ink md:size-8" aria-label={`Close ${title}`}><X size={18} /></button>
+        <button type="button" onClick={() => closeWindow(windowItem.id)} className="window-close flex size-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-muted-ink transition-colors hover:bg-surface-raised hover:text-ink md:size-8" aria-label={`Close ${title}`}><X size={18} /></button>
       </div>
       <div className="min-h-0 flex-1 touch-pan-y overflow-y-auto overscroll-contain p-5 [-webkit-overflow-scrolling:touch] sm:p-7"><WindowContent windowItem={windowItem} /></div>
     </section>
@@ -205,14 +217,14 @@ function WindowFrame({ windowItem, isActive, closeWindow, focusWindow, updateWin
   if (isMobile) return <div className="pointer-events-auto fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] top-[max(0.75rem,env(safe-area-inset-top))] z-[1001] min-h-0 animate-[window-in_180ms_ease-out]">{content}</div>;
 
   return (
-    <Rnd bounds="window" dragHandleClassName="window-handle" size={{ width: windowItem.width, height: windowItem.height }} position={{ x: windowItem.x, y: windowItem.y }} minWidth={360} minHeight={280} maxWidth="94vw" maxHeight="88vh" style={{ zIndex: windowItem.zIndex, position: "fixed", pointerEvents: "auto" }} onMouseDown={() => focusWindow(windowItem.id)} onDragStart={() => focusWindow(windowItem.id)} onDragStop={(_event, data) => updateWindow(windowItem.id, { x: data.x, y: data.y })} onResizeStop={(_event, _direction, ref, _delta, position) => updateWindow(windowItem.id, { width: ref.offsetWidth, height: ref.offsetHeight, ...position })}>{content}</Rnd>
+    <Rnd bounds="window" dragHandleClassName="window-handle" cancel=".window-close" size={{ width: windowItem.width, height: windowItem.height }} position={{ x: windowItem.x, y: windowItem.y }} minWidth={360} minHeight={280} maxWidth="94vw" maxHeight="88vh" style={{ zIndex: windowItem.zIndex, position: "fixed", pointerEvents: "auto" }} onMouseDown={() => focusWindow(windowItem.id)} onDragStart={() => focusWindow(windowItem.id)} onDragStop={(_event, data) => updateWindow(windowItem.id, { x: data.x, y: data.y })} onResizeStop={(_event, _direction, ref, _delta, position) => updateWindow(windowItem.id, { width: ref.offsetWidth, height: ref.offsetHeight, ...position })}>{content}</Rnd>
   );
 }
 
 export function WindowProvider({ children }: { children: ReactNode }) {
   const [windows, setWindows] = useState<OpenWindow[]>([]);
   const triggerRefs = useRef(new Map<string, HTMLButtonElement>());
-  const isMobile = useIsMobile();
+  const isMobile = useMobileWindowMode();
   const activeWindow = windows.reduce<OpenWindow | null>((active, item) => !active || item.zIndex > active.zIndex ? item : active, null);
 
   const focusWindow = useCallback((id: string) => {

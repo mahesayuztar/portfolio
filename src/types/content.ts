@@ -9,6 +9,7 @@ export interface Project {
   stack: string[];
   problem: string;
   solution: string;
+  internal?: boolean;
   mockups: ProjectMockup[];
 }
 

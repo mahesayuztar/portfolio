@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Button } from "@/components/ui/Button";
 import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ResilientImage } from "@/components/ui/ResilientImage";
 import { TechLabel } from "@/components/ui/TechLabel";
 import {
   WindowProvider,
@@ -12,7 +13,15 @@ import { journey } from "@/data/journey";
 import { projects } from "@/data/projects";
 import { skillCategories } from "@/data/skills";
 import { contactEmail } from "@/data/social";
-import { ArrowDown, ArrowUpRight, MoveUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, GraduationCap, MoveUpRight } from "lucide-react";
+
+const journeyVisuals: Record<string, { src: string; alt: string }[]> = {
+  sisgo: [{ src: "/images/home/logo-sisgo_7_11zon.webp", alt: "SISGO logo" }],
+  solveit: [{ src: "/images/home/solve-it_2_11zon.webp", alt: "Solveit.id logo" }],
+  pln: [{ src: "/images/home/pln logo_1_11zon.webp", alt: "PLN logo" }],
+  uitm: [{ src: "/images/home/UiTM-Logo_4_11zon.webp", alt: "UiTM logo" }],
+  assistant: [{ src: "/images/home/cropped-LOGO-UM_6_11zon.webp", alt: "Universitas Negeri Malang logo" }],
+};
 
 export default function Main() {
   return (
@@ -76,18 +85,22 @@ export default function Main() {
               title="Progress measured in responsibility."
             />
             <ol className="mt-16 border-t border-border">
-              {journey.map((item, _index) => (
+              {journey.map((item) => (
                 <li
                   key={item.id}
-                  className="grid gap-5 border-b border-border py-8 md:grid-cols-[3rem_11rem_1fr_auto] md:items-start md:gap-8"
+                  className="grid grid-cols-[4.5rem_1fr_auto] gap-x-5 gap-y-4 border-b border-border py-8 md:grid-cols-[4.5rem_11rem_1fr_auto] md:items-start md:gap-8"
                 >
-                  <span className="font-heading text-xs text-faint-ink">
-                    {String(_index + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-xs leading-5 text-muted-ink">
+                  <div className="flex h-16 w-[4.5rem] items-center justify-center gap-1.5 overflow-hidden border border-border bg-surface p-2">
+                    {item.id === "teacher" ? (
+                      <GraduationCap size={36} strokeWidth={1.35} className="text-accent" aria-label="Teaching" />
+                    ) : journeyVisuals[item.id]?.map((visual) => (
+                      <ResilientImage key={visual.src} src={visual.src} alt={visual.alt} width={64} height={64} className="max-h-11 min-w-0 flex-1 object-contain" />
+                    ))}
+                  </div>
+                  <p className="self-center text-xs leading-5 text-muted-ink md:self-start">
                     {item.period}
                   </p>
-                  <div>
+                  <div className="col-span-2 md:col-span-1">
                     <h3 className="text-xl font-medium tracking-[-0.02em]">
                       {item.title}
                     </h3>
@@ -102,7 +115,7 @@ export default function Main() {
                     kind="experience"
                     contentId={item.id}
                     ariaLabel={`Open details for ${item.title}`}
-                    className="flex size-11 items-center justify-center rounded-full border border-border text-muted-ink transition-colors hover:border-border-strong hover:text-ink"
+                    className="row-start-1 col-start-3 flex size-11 items-center justify-center rounded-full border border-border text-muted-ink transition-colors hover:border-border-strong hover:text-ink md:col-start-4"
                   >
                     <ArrowUpRight size={17} />
                   </WindowTrigger>

@@ -2,6 +2,27 @@ import type { JourneyItem } from "@/types/content";
 
 export const journey: JourneyItem[] = [
   {
+  id: "sisgo",
+  period: "Mar 2026 — Present",
+  title: "Software Engineer",
+  organization: "SISGO Global Teknologi",
+  summary:
+    "Develop and maintain a full-scale ERP ecosystem, with a strong focus on financial business logic, cross-module integration, and scalable application architecture.",
+  whatHappened:
+    "Work across a production ERP system where financial processes, inventory, sales, procurement, and other operational modules are tightly interconnected.",
+  whatIWorked:
+    "Designed and maintained financial logic including general ledger, accounts receivable, balance sheets, auto-posting, and inventory costing (HPP), while supporting sales, procurement, and other ERP modules. Also developed a scalable website builder architecture focused on reusable components, package-based systems, and long-term extensibility.",
+  tech: [
+    "Laravel",
+    "Next.js",
+    "React Native",
+    "Go",
+    "PostgreSQL",
+    "SQL Server",
+    "DataGrip",
+  ],
+},
+  {
     id: "solveit",
     period: "Jul 2025 — Feb 2026",
     title: "Backend Programmer",

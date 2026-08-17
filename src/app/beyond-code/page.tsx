@@ -1,7 +1,7 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
+import { ResilientImage } from "@/components/ui/ResilientImage";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -36,6 +36,27 @@ const chapters = [
   },
 ];
 
+const beyondCodeImages = [
+  { src: "/images/beyond-code/mahesa-robotics_5_11zon_22_11zon.webp", alt: "Mahesa representing the humanoid robotics team", shape: "aspect-[4/5]" },
+  { src: "/images/beyond-code/bridge-3_19_11zon.webp", alt: "Mahesa competing in a bridge tournament", shape: "aspect-square" },
+  { src: "/images/beyond-code/robotics-1_25_11zon.webp", alt: "Humanoid robotics team activity", shape: "aspect-[3/4]" },
+  { src: "/images/beyond-code/pln-1_23_11zon.webp", alt: "Mahesa during his PLN Nusantara Power internship", shape: "aspect-[4/3]" },
+  { src: "/images/beyond-code/bridge-1-achievement_12_11zon.webp", alt: "Bridge tournament recognition", shape: "aspect-[4/5]" },
+  { src: "/images/beyond-code/robotics-5_13_11zon.webp", alt: "Robotics team preparing their humanoid robot", shape: "aspect-square" },
+  { src: "/images/beyond-code/uitm-gpbl_3_11zon_17_11zon.webp", alt: "Recognition at UiTM Penang Global Project Based Learning", shape: "aspect-[3/4]" },
+  { src: "/images/beyond-code/bridge-4_20_11zon.webp", alt: "Competitive bridge event", shape: "aspect-[4/3]" },
+  { src: "/images/beyond-code/robotics-2_26_11zon.webp", alt: "Mahesa working with the robotics team", shape: "aspect-[4/5]" },
+  { src: "/images/beyond-code/pln-2_24_11zon.webp", alt: "Technical work during the PLN Nusantara Power internship", shape: "aspect-square" },
+  { src: "/images/beyond-code/bridge-5-achievement_9_11zon.webp", alt: "Bridge team achievement", shape: "aspect-[3/4]" },
+  { src: "/images/beyond-code/robotics-6_14_11zon.webp", alt: "Humanoid robot competition preparation", shape: "aspect-[4/3]" },
+  { src: "/images/beyond-code/bridge-2_18_11zon.webp", alt: "Mahesa with fellow bridge competitors", shape: "aspect-square" },
+  { src: "/images/beyond-code/robotics-3-achievement_10_11zon.webp", alt: "Robotics team competition achievement", shape: "aspect-[4/5]" },
+  { src: "/images/beyond-code/robotics-7_15_11zon.webp", alt: "Robotics team collaboration", shape: "aspect-[3/4]" },
+  { src: "/images/beyond-code/bridge-6_21_11zon.webp", alt: "Bridge competition gathering", shape: "aspect-[4/3]" },
+  { src: "/images/beyond-code/robotics-4-achievement_11_11zon.webp", alt: "Robotics team celebrating a result", shape: "aspect-square" },
+  { src: "/images/beyond-code/robotics-8_16_11zon.webp", alt: "Humanoid robotics team at an event", shape: "aspect-[4/5]" },
+];
+
 export default function BeyondCodePage() {
   return (
     <main>
@@ -54,21 +75,12 @@ export default function BeyondCodePage() {
       </section>
 
       <section className="section-rule py-20 sm:py-28">
-        <div className="mx-auto grid w-[min(100%-40px,1180px)] gap-5 md:grid-cols-[0.8fr_1.2fr]">
-          <Image
-            src="/images/mahesa-robotics.jpg"
-            alt="Mahesa speaking in his humanoid robotics team uniform"
-            width={900}
-            height={1200}
-            className="h-full max-h-[48rem] w-full rounded-md object-cover object-top"
-          />
-          <Image
-            src="/images/uitm-gpbl.jpg"
-            alt="Mahesa receiving recognition at UiTM Penang's Global Project Based Learning program"
-            width={1200}
-            height={1600}
-            className="h-full max-h-[48rem] w-full rounded-md object-cover"
-          />
+        <div className="mx-auto w-[min(100%-40px,1180px)] columns-2 gap-3 md:columns-3 lg:columns-4">
+          {beyondCodeImages.map((image) => (
+            <figure key={image.src} className={`group relative mb-3 break-inside-avoid overflow-hidden border border-border bg-surface ${image.shape}`}>
+              <ResilientImage src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.025]" />
+            </figure>
+          ))}
         </div>
       </section>
 
