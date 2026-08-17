@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Button } from "@/components/ui/Button";
 import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { ResilientImage } from "@/components/ui/ResilientImage";
 import { TechLabel } from "@/components/ui/TechLabel";
 import {
@@ -204,10 +205,14 @@ export default function Main() {
             <CursorRevealHeading className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">
               Have a problem worth giving a clear shape?
             </CursorRevealHeading>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
               <Button href={`mailto:${contactEmail}`}>
                 Email Mahesa <ArrowUpRight size={16} />
               </Button>
+              <div>
+                <p className="mb-3 text-xs uppercase tracking-[0.16em] text-faint-ink">Find me elsewhere</p>
+                <SocialLinks />
+              </div>
             </div>
           </Container>
         </section>

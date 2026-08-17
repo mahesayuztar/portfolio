@@ -6,6 +6,7 @@ import { projects } from "@/data/projects";
 import { contactEmail } from "@/data/social";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { ResilientImage } from "@/components/ui/ResilientImage";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import type { ProjectMockup } from "@/types/content";
 import {
   ArrowUpRight,
@@ -454,13 +455,16 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
           clearer shape.
         </p>
       </div>
-      <a
-        href={`mailto:${contactEmail}`}
-        className="mt-8 inline-flex items-center gap-2 text-sm text-accent hover:text-accent-strong"
-      >
-        {contactEmail}
-        <ArrowUpRight size={16} />
-      </a>
+      <div className="mt-8 flex flex-wrap items-end justify-between gap-6 border-t border-border pt-6">
+        <a
+          href={`mailto:${contactEmail}`}
+          className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent-strong"
+        >
+          {contactEmail}
+          <ArrowUpRight size={16} />
+        </a>
+        <SocialLinks />
+      </div>
     </div>
   );
 }
