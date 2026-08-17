@@ -116,7 +116,7 @@ function getWindowTitle(windowItem: OpenWindow) {
   return titles[windowItem.kind];
 }
 
-const MOCKUP_SCROLL_INTERVAL = 1800;
+const MOCKUP_SCROLL_INTERVAL = 1400;
 
 function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup[]; projectLink?: string }) {
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -128,18 +128,16 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
     const gallery = galleryRef.current;
     if (!gallery) return;
 
-    const mockupItems = Array.from(gallery.children) as HTMLElement[];
-    const closestIndex = mockupItems.reduce((currentIndex, item, _index) => {
-      const closestDistance = Math.abs(mockupItems[currentIndex].offsetLeft - gallery.offsetLeft - gallery.scrollLeft);
-      const itemDistance = Math.abs(item.offsetLeft - gallery.offsetLeft - gallery.scrollLeft);
-      return itemDistance < closestDistance ? _index : currentIndex;
-    }, 0);
-
-    activeIndexRef.current = closestIndex;
+    activeIndexRef.current = Math.min(
+      mockups.length - 1,
+      Math.max(0, Math.round(gallery.scrollLeft / gallery.clientWidth)),
+    );
   }
 
   useEffect(() => {
-    if (mockups.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (mockups.length < 2) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const interval = window.setInterval(() => {
       if (isPausedRef.current) return;
@@ -149,12 +147,11 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
 
       activeIndexRef.current += directionRef.current;
       const gallery = galleryRef.current;
-      const nextMockup = gallery?.children[activeIndexRef.current] as HTMLElement | undefined;
 
-      if (gallery && nextMockup) {
+      if (gallery) {
         gallery.scrollTo({
-          left: nextMockup.offsetLeft - gallery.offsetLeft,
-          behavior: "smooth",
+          left: activeIndexRef.current * gallery.clientWidth,
+          behavior: prefersReducedMotion ? "auto" : "smooth",
         });
       }
     }, MOCKUP_SCROLL_INTERVAL);
