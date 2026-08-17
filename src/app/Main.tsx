@@ -80,15 +80,15 @@ export default function Main() {
               {journey.map((item) => (
                 <li
                   key={item.id}
-                  className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 border-b border-border py-8 md:grid-cols-[11rem_1fr_auto] md:items-start md:gap-8"
+                  className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 border-b border-border py-8 md:grid-cols-[17rem_1fr_auto] md:items-start md:gap-8"
                 >
                   <div>
                     <p className="text-xs leading-5 text-muted-ink">{item.period}</p>
-                    <div className="mt-4 flex min-h-9 items-center gap-3">
+                    <div className="mt-4 flex min-h-16 items-center gap-3">
                       {item.id === "teacher" ? (
                         <GraduationCap size={32} strokeWidth={1.35} className="journey-logo-fallback text-accent" aria-label="Teaching" />
                       ) : item.image && item.imageAlt ? (
-                        <div className="relative h-9" style={{ width: item.imageSize ?? 92 }}>
+                        <div className="relative" style={{ width: item.imageSize ?? 92, height: Math.min(item.imageSize ?? 92, 96) }}>
                           <ResilientImage src={item.image} alt={item.imageAlt} fill sizes={`${item.imageSize ?? 92}px`} className="journey-logo-light object-contain object-left" />
                           <ResilientImage src={item.imageBw ?? item.image} alt="" fill sizes={`${item.imageSize ?? 92}px`} aria-hidden className="journey-logo-dark journey-logo-fallback object-contain object-left" />
                         </div>
