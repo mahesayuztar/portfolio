@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
   slug: "sisgo-erp",
   index: "05",
-  title: "SISGO ERP",
+  title: "ERP",
   category: "Enterprise Resource Planning",
   year: "2026",
   description:
@@ -27,7 +27,7 @@ export const projects: Project[] = [
 {
   slug: "sisgo-website-builder",
   index: "06",
-  title: "SISGO Website Builder",
+  title: "Website Builder",
   category: "Platform / Website Builder",
   year: "2026",
   description:

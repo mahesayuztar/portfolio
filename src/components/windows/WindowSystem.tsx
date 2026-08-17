@@ -126,7 +126,7 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
           {project.internal && (
             <p className="inline-flex items-center gap-2 border border-border bg-surface px-3 py-2 text-xs text-muted-ink">
               <LockKeyhole size={14} aria-hidden />
-              Internal project · visual details are private
+              Internal project
             </p>
           )}
           <p className="text-sm text-muted-ink">{project.role}</p>

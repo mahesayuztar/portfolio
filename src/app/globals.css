@@ -57,6 +57,10 @@
   --touch-feedback: rgb(184 163 199 / 34%);
 }
 
+:root[data-theme="dark"] .journey-logo {
+  filter: brightness(0) invert(1);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
