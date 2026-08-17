@@ -81,13 +81,9 @@ export default function BeyondCodePage() {
       <SiteHeader />
       <section className="py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)]">
-          <Link href="/" className="text-xs text-muted-ink hover:text-ink">
-            ← Back to profile
-          </Link>
+          <Link href="/" className="text-xs text-muted-ink hover:text-ink">← Back to profile</Link>
           <div className="mt-14">
-            <CursorRevealHeading className="mt-5 text-balance text-[clamp(3.5rem,9vw,8rem)] font-medium leading-[0.86] tracking-[-0.065em]">
-              The other places I learned to build.
-            </CursorRevealHeading>
+            <CursorRevealHeading className="max-w-4xl text-balance text-[clamp(3.5rem,9vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">The other places I learned to build.</CursorRevealHeading>
           </div>
         </div>
       </section>
