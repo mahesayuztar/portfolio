@@ -13,7 +13,6 @@ export const projects: Project[] = [
   stack: [
     "Laravel",
     "Next.js",
-    "PostgreSQL",
     "SQL Server",
     "DataGrip",
   ],

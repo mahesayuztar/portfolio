@@ -86,7 +86,7 @@ export default function Main() {
                     <p className="text-xs leading-5 text-muted-ink">{item.period}</p>
                     <div className="mt-4 flex min-h-16 items-center gap-3">
                       {item.id === "teacher" ? (
-                        <GraduationCap size={32} strokeWidth={1.35} className="journey-logo-fallback text-accent" aria-label="Teaching" />
+                        <GraduationCap size={64} strokeWidth={1.35} className="journey-logo-fallback text-accent" aria-label="Teaching" />
                       ) : item.image && item.imageAlt ? (
                         <div className="relative" style={{ width: item.imageSize ?? 92, height: Math.min(item.imageSize ?? 92, 96) }}>
                           <ResilientImage src={item.image} alt={item.imageAlt} fill sizes={`${item.imageSize ?? 92}px`} className="journey-logo-light object-contain object-left" />

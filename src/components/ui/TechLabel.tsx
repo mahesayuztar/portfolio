@@ -2,6 +2,7 @@ import type { IconType } from "react-icons";
 import {
   SiBootstrap,
   SiCodeigniter,
+  SiDatagrip,
   SiDocker,
   SiGit,
   SiGo,
@@ -11,6 +12,7 @@ import {
   SiMysql,
   SiNextdotjs,
   SiPhp,
+  SiPostgresql,
   SiPython,
   SiReact,
   SiTailwindcss,
@@ -20,6 +22,7 @@ import {
 const technologyIcons: Record<string, IconType> = {
   Bootstrap: SiBootstrap,
   CodeIgniter: SiCodeigniter,
+  DataGrip: SiDatagrip,
   Docker: SiDocker,
   Git: SiGit,
   Golang: SiGo,
@@ -30,6 +33,7 @@ const technologyIcons: Record<string, IconType> = {
   MySQL: SiMysql,
   "Next.js": SiNextdotjs,
   PHP: SiPhp,
+  PostgreSQL: SiPostgresql,
   Python: SiPython,
   React: SiReact,
   "Tailwind CSS": SiTailwindcss,

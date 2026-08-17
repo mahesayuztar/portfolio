@@ -3,11 +3,11 @@ import { CursorRevealHeading } from "@/components/ui/CursorRevealHeading";
 import { ResilientImage } from "@/components/ui/ResilientImage";
 import type { Metadata } from "next";
 import Link from "next/link";
-import bridge1Image from "../../../public/images/beyond-code/bridge-1-achievement_12_11zon.webp";
+// import bridge1Image from "../../../public/images/beyond-code/bridge-1-achievement_12_11zon.webp";
 import bridge2Image from "../../../public/images/beyond-code/bridge-2_18_11zon.webp";
 import bridge3Image from "../../../public/images/beyond-code/bridge-3_19_11zon.webp";
 import bridge4Image from "../../../public/images/beyond-code/bridge-4_20_11zon.webp";
-import bridge5Image from "../../../public/images/beyond-code/bridge-5-achievement_9_11zon.webp";
+// import bridge5Image from "../../../public/images/beyond-code/bridge-5-achievement_9_11zon.webp";
 import bridge6Image from "../../../public/images/beyond-code/bridge-6_21_11zon.webp";
 import mahesaRoboticsImage from "../../../public/images/beyond-code/mahesa-robotics_5_11zon_22_11zon.webp";
 import pln1Image from "../../../public/images/beyond-code/pln-1_23_11zon.webp";
@@ -15,7 +15,7 @@ import pln2Image from "../../../public/images/beyond-code/pln-2_24_11zon.webp";
 import robotics1Image from "../../../public/images/beyond-code/robotics-1_25_11zon.webp";
 import robotics2Image from "../../../public/images/beyond-code/robotics-2_26_11zon.webp";
 import robotics3Image from "../../../public/images/beyond-code/robotics-3-achievement_10_11zon.webp";
-import robotics4Image from "../../../public/images/beyond-code/robotics-4-achievement_11_11zon.webp";
+// import robotics4Image from "../../../public/images/beyond-code/robotics-4-achievement_11_11zon.webp";
 import robotics5Image from "../../../public/images/beyond-code/robotics-5_13_11zon.webp";
 import robotics6Image from "../../../public/images/beyond-code/robotics-6_14_11zon.webp";
 import robotics7Image from "../../../public/images/beyond-code/robotics-7_15_11zon.webp";
@@ -59,19 +59,19 @@ const beyondCodeImages = [
   { src: bridge3Image, alt: "Mahesa competing in a bridge tournament" },
   { src: robotics1Image, alt: "Humanoid robotics team activity" },
   { src: pln1Image, alt: "Mahesa during his PLN Nusantara Power internship" },
-  { src: bridge1Image, alt: "Bridge tournament recognition" },
+  // { src: bridge1Image, alt: "Bridge tournament recognition" },
   { src: robotics5Image, alt: "Robotics team preparing their humanoid robot" },
   { src: uitmImage, alt: "Recognition at UiTM Penang Global Project Based Learning" },
   { src: bridge4Image, alt: "Competitive bridge event" },
   { src: robotics2Image, alt: "Mahesa working with the robotics team" },
   { src: pln2Image, alt: "Technical work during the PLN Nusantara Power internship" },
-  { src: bridge5Image, alt: "Bridge team achievement" },
+  // { src: bridge5Image, alt: "Bridge team achievement" },
   { src: robotics6Image, alt: "Humanoid robot competition preparation" },
   { src: bridge2Image, alt: "Mahesa with fellow bridge competitors" },
   { src: robotics3Image, alt: "Robotics team competition achievement" },
   { src: robotics7Image, alt: "Robotics team collaboration" },
   { src: bridge6Image, alt: "Bridge competition gathering" },
-  { src: robotics4Image, alt: "Robotics team celebrating a result" },
+  // { src: robotics4Image, alt: "Robotics team celebrating a result" },
   { src: robotics8Image, alt: "Humanoid robotics team at an event" },
 ];
 
