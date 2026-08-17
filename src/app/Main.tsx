@@ -46,7 +46,6 @@ export default function Main() {
         <section id="about" className="section-rule py-24 sm:py-32">
           <Container className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
             <SectionHeading
-              eyebrow="01 / About"
               title="Software is the medium. Clarity is the work."
             />
             <div className="self-end">
@@ -74,7 +73,6 @@ export default function Main() {
         <section id="journey" className="section-rule py-24 sm:py-32">
           <Container>
             <SectionHeading
-              eyebrow="02 / Journey"
               title="Progress measured in responsibility."
             />
             <ol className="mt-16 border-t border-border">
@@ -127,7 +125,6 @@ export default function Main() {
         >
           <Container>
             <SectionHeading
-              eyebrow="03 / Selected projects"
               title="I’ve built a few things worth showing."
             />
             <div className="mt-16 space-y-4">
@@ -174,7 +171,6 @@ export default function Main() {
         <section id="skills" className="section-rule py-24 sm:py-32">
           <Container>
             <SectionHeading
-              eyebrow="04 / Capabilities"
               title="Backend first, fullstack when needed."
             />
             <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-4">
@@ -199,9 +195,6 @@ export default function Main() {
 
         <section id="contact" className="section-rule py-24 sm:py-36">
           <Container>
-            <p className="font-heading text-xs uppercase tracking-[0.2em] text-accent pb-5">
-              05 / Contact
-            </p>
             <CursorRevealHeading className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">
               Have a problem worth giving a clear shape?
             </CursorRevealHeading>
