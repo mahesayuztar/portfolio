@@ -124,6 +124,18 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
   const activeIndexRef = useRef(0);
   const directionRef = useRef<1 | -1>(1);
 
+  function handleGalleryScroll() {
+    const gallery = galleryRef.current;
+    if (!gallery) return;
+
+    const mockupItems = Array.from(gallery.children) as HTMLElement[];
+    activeIndexRef.current = mockupItems.reduce((closestIndex, item, _index) => {
+      const closestDistance = Math.abs(mockupItems[closestIndex].offsetLeft - gallery.offsetLeft - gallery.scrollLeft);
+      const itemDistance = Math.abs(item.offsetLeft - gallery.offsetLeft - gallery.scrollLeft);
+      return itemDistance < closestDistance ? _index : closestIndex;
+    }, 0);
+  }
+
   useEffect(() => {
     if (mockups.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -139,7 +151,7 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
 
       if (gallery && nextMockup) {
         gallery.scrollTo({
-          left: nextMockup.offsetLeft - (gallery.clientWidth - nextMockup.clientWidth) / 2,
+          left: nextMockup.offsetLeft - gallery.offsetLeft,
           behavior: "smooth",
         });
       }
@@ -158,32 +170,27 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
         if (!event.currentTarget.contains(event.relatedTarget)) isPausedRef.current = false;
       }}
     >
-      <div ref={galleryRef} className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth overscroll-x-contain pb-2">
+      <div className="mb-3 flex items-center justify-between gap-4 text-xs text-faint-ink">
+        <span>{mockups.length} project views</span>
+        {mockups.length > 1 && <span>Swipe or scroll</span>}
+      </div>
+      <div ref={galleryRef} onScroll={handleGalleryScroll} className="project-gallery flex touch-pan-x snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth overscroll-x-contain">
         {mockups.map((mockup) => (
-          <figure key={mockup.src} className="w-[92%] shrink-0 snap-center overflow-hidden rounded-md border border-border bg-surface sm:w-[88%]">
+          <figure key={mockup.src} className="relative w-full shrink-0 snap-start snap-always overflow-hidden border border-border bg-surface p-3 sm:p-5">
+            <ResilientImage src={mockup.src} alt={mockup.alt} width={1440} height={900} className="mx-auto aspect-[16/10] w-full object-contain" />
             {projectLink ? (
-              <a href={projectLink} target="_blank" rel="noreferrer" aria-label="Open live project">
-                <ResilientImage src={mockup.src} alt={mockup.alt} width={1440} height={900} className="aspect-[16/10] w-full object-cover transition-transform duration-300 group-hover/mockups:scale-[1.01]" />
+              <a href={projectLink} target="_blank" rel="noreferrer" className="project-gallery-status absolute inset-x-3 bottom-3 flex min-h-24 items-end justify-between gap-3 px-4 pb-4 pt-12 text-sm font-medium text-ink transition-colors hover:text-accent sm:inset-x-5 sm:bottom-5" aria-label="Visit live website">
+                <span>Visit live website</span>
+                <ArrowUpRight size={16} className="shrink-0" />
               </a>
             ) : (
-              <ResilientImage src={mockup.src} alt={mockup.alt} width={1440} height={900} className="aspect-[16/10] w-full object-cover" />
+              <div className="project-gallery-status pointer-events-none absolute inset-x-3 bottom-3 flex min-h-24 items-end px-4 pb-4 pt-12 text-sm font-medium text-ink sm:inset-x-5 sm:bottom-5">
+                Live website coming soon
+              </div>
             )}
           </figure>
         ))}
       </div>
-      {mockups.length > 1 && (
-        <>
-          <div className="project-gallery-overlay-left pointer-events-none absolute inset-y-0 left-0 w-16" aria-hidden />
-          <div className="project-gallery-overlay-right pointer-events-none absolute inset-y-0 right-0 w-16" aria-hidden />
-        </>
-      )}
-      {projectLink ? (
-        <a href={projectLink} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-2 text-sm text-accent hover:text-accent-strong">
-          Visit live website <ArrowUpRight size={15} />
-        </a>
-      ) : (
-        <p className="mt-3 text-sm text-faint-ink">Live website coming soon.</p>
-      )}
     </div>
   );
 }

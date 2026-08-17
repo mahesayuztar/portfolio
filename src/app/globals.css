@@ -227,12 +227,16 @@ button {
   content: "";
 }
 
-.project-gallery-overlay-left {
-  background: linear-gradient(to right, var(--gallery-overlay), transparent);
+.project-gallery {
+  scrollbar-width: none;
 }
 
-.project-gallery-overlay-right {
-  background: linear-gradient(to left, var(--gallery-overlay), transparent);
+.project-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.project-gallery-status {
+  background: linear-gradient(to bottom, transparent, var(--gallery-overlay) 72%);
 }
 
 .touch-feedback[data-action="true"] {
