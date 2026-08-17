@@ -15,14 +15,6 @@ import { skillCategories } from "@/data/skills";
 import { contactEmail } from "@/data/social";
 import { ArrowDown, ArrowUpRight, GraduationCap, MoveUpRight } from "lucide-react";
 
-const journeyVisuals: Record<string, { src: string; alt: string }[]> = {
-  sisgo: [{ src: "/images/home/logo-sisgo_7_11zon.webp", alt: "SISGO logo" }],
-  solveit: [{ src: "/images/home/solve-it_2_11zon.webp", alt: "Solveit.id logo" }],
-  pln: [{ src: "/images/home/pln logo_1_11zon.webp", alt: "PLN Nusantara Power logo" }],
-  uitm: [{ src: "/images/home/UiTM-Logo_4_11zon.webp", alt: "UiTM logo" }],
-  assistant: [{ src: "/images/home/cropped-LOGO-UM_6_11zon.webp", alt: "Universitas Negeri Malang logo" }],
-};
-
 export default function Main() {
   return (
     <WindowProvider>
@@ -94,10 +86,13 @@ export default function Main() {
                     <p className="text-xs leading-5 text-muted-ink">{item.period}</p>
                     <div className="mt-4 flex min-h-9 items-center gap-3">
                       {item.id === "teacher" ? (
-                        <GraduationCap size={32} strokeWidth={1.35} className="journey-logo text-accent" aria-label="Teaching" />
-                      ) : journeyVisuals[item.id]?.map((visual) => (
-                        <ResilientImage key={visual.src} src={visual.src} alt={visual.alt} width={96} height={48} className="journey-logo h-9 w-auto max-w-[5.75rem] object-contain object-left" />
-                      ))}
+                        <GraduationCap size={32} strokeWidth={1.35} className="journey-logo-fallback text-accent" aria-label="Teaching" />
+                      ) : item.image && item.imageAlt ? (
+                        <div className="relative h-9" style={{ width: item.imageSize ?? 92 }}>
+                          <ResilientImage src={item.image} alt={item.imageAlt} fill sizes={`${item.imageSize ?? 92}px`} className="journey-logo-light object-contain object-left" />
+                          <ResilientImage src={item.imageBw ?? item.image} alt="" fill sizes={`${item.imageSize ?? 92}px`} aria-hidden className={`journey-logo-dark object-contain object-left ${item.imageBw ? "" : "journey-logo-fallback"}`} />
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                   <div className="col-span-2 md:col-span-1">

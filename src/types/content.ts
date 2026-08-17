@@ -20,6 +20,10 @@ export interface ProjectMockup {
 
 export interface JourneyItem {
   id: string;
+  image?: string;
+  imageBw?: string;
+  imageAlt?: string;
+  imageSize?: number;
   period: string;
   title: string;
   organization: string;

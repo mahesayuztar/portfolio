@@ -3,6 +3,9 @@ import type { JourneyItem } from "@/types/content";
 export const journey: JourneyItem[] = [
   {
   id: "sisgo",
+  image: "/images/home/logo-sisgo_7_11zon.webp",
+  imageAlt: "SISGO logo",
+  imageSize: 72,
   period: "Mar 2026 — Present",
   title: "Software Engineer",
   organization: "SISGO Global Teknologi",
@@ -24,6 +27,9 @@ export const journey: JourneyItem[] = [
 },
   {
     id: "solveit",
+    image: "/images/home/solve-it_2_11zon.webp",
+    imageAlt: "Solveit.id logo",
+    imageSize: 88,
     period: "Jul 2025 — Feb 2026",
     title: "Backend Programmer",
     organization: "Solveit.id",
@@ -44,6 +50,9 @@ export const journey: JourneyItem[] = [
   },
   {
     id: "pln",
+    image: "/images/home/pln logo_1_11zon.webp",
+    imageAlt: "PLN Nusantara Power logo",
+    imageSize: 96,
     period: "Mar — Jun 2025",
     title: "IT Intern",
     organization: "PLN Nusantara Power UP Brantas",
@@ -54,6 +63,10 @@ export const journey: JourneyItem[] = [
   },
   {
     id: "uitm",
+    image: "/images/home/UiTM-Logo_4_11zon.webp",
+    imageBw: "/images/home/uitm-bw.webp",
+    imageAlt: "UiTM logo",
+    imageSize: 72,
     period: "Aug — Sep 2024",
     title: "Robotic Delegate & Team Lead",
     organization: "2nd Global Project Based Learning, UiTM Penang",
@@ -64,6 +77,10 @@ export const journey: JourneyItem[] = [
   },
   {
     id: "assistant",
+    image: "/images/home/cropped-LOGO-UM_6_11zon.webp",
+    imageBw: "/images/home/Logo-UM-bw.webp",
+    imageAlt: "Universitas Negeri Malang logo",
+    imageSize: 58,
     period: "Jan — Jun 2023",
     title: "Teaching Assistant",
     organization: "Algorithms & Programming, Universitas Negeri Malang",
