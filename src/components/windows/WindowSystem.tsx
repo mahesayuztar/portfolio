@@ -123,17 +123,21 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
   const isPausedRef = useRef(false);
   const activeIndexRef = useRef(0);
   const directionRef = useRef<1 | -1>(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   function handleGalleryScroll() {
     const gallery = galleryRef.current;
     if (!gallery) return;
 
     const mockupItems = Array.from(gallery.children) as HTMLElement[];
-    activeIndexRef.current = mockupItems.reduce((closestIndex, item, _index) => {
-      const closestDistance = Math.abs(mockupItems[closestIndex].offsetLeft - gallery.offsetLeft - gallery.scrollLeft);
+    const closestIndex = mockupItems.reduce((currentIndex, item, _index) => {
+      const closestDistance = Math.abs(mockupItems[currentIndex].offsetLeft - gallery.offsetLeft - gallery.scrollLeft);
       const itemDistance = Math.abs(item.offsetLeft - gallery.offsetLeft - gallery.scrollLeft);
-      return itemDistance < closestDistance ? _index : closestIndex;
+      return itemDistance < closestDistance ? _index : currentIndex;
     }, 0);
+
+    activeIndexRef.current = closestIndex;
+    setActiveIndex(closestIndex);
   }
 
   useEffect(() => {
@@ -170,26 +174,30 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
         if (!event.currentTarget.contains(event.relatedTarget)) isPausedRef.current = false;
       }}
     >
-      <div className="mb-3 flex items-center justify-between gap-4 text-xs text-faint-ink">
-        <span>{mockups.length} project views</span>
-        {mockups.length > 1 && <span>Swipe or scroll</span>}
-      </div>
-      <div ref={galleryRef} onScroll={handleGalleryScroll} className="project-gallery flex touch-pan-x snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth overscroll-x-contain">
-        {mockups.map((mockup) => (
-          <figure key={mockup.src} className="relative w-full shrink-0 snap-start snap-always overflow-hidden border border-border bg-surface p-3 sm:p-5">
-            <ResilientImage src={mockup.src} alt={mockup.alt} width={1440} height={900} className="mx-auto aspect-[16/10] w-full object-contain" />
-            {projectLink ? (
-              <a href={projectLink} target="_blank" rel="noreferrer" className="project-gallery-status absolute inset-x-3 bottom-3 flex min-h-24 items-end justify-between gap-3 px-4 pb-4 pt-12 text-sm font-medium text-ink transition-colors hover:text-accent sm:inset-x-5 sm:bottom-5" aria-label="Visit live website">
-                <span>Visit live website</span>
-                <ArrowUpRight size={16} className="shrink-0" />
-              </a>
-            ) : (
-              <div className="project-gallery-status pointer-events-none absolute inset-x-3 bottom-3 flex min-h-24 items-end px-4 pb-4 pt-12 text-sm font-medium text-ink sm:inset-x-5 sm:bottom-5">
-                Live website coming soon
-              </div>
-            )}
-          </figure>
-        ))}
+      <div className="relative overflow-hidden bg-surface">
+        <div ref={galleryRef} onScroll={handleGalleryScroll} className="project-gallery flex touch-pan-x snap-x snap-mandatory overflow-x-auto scroll-smooth overscroll-x-contain">
+          {mockups.map((mockup) => (
+            <figure key={mockup.src} className="flex w-full shrink-0 snap-start snap-always items-start justify-center px-5 pb-28 pt-5 sm:px-10 sm:pb-32 sm:pt-8">
+              <ResilientImage src={mockup.src} alt={mockup.alt} width={1440} height={900} className="project-mockup-image aspect-[16/10] w-full object-contain" />
+            </figure>
+          ))}
+        </div>
+        <div className="project-gallery-status pointer-events-none absolute inset-x-0 bottom-0 z-10 flex min-h-28 items-end justify-between gap-5 px-5 pb-5 pt-14 sm:min-h-32 sm:px-8 sm:pb-7 sm:pt-16">
+          <div className="shrink-0 font-heading text-xs tracking-[0.12em] text-faint-ink">
+            {String(activeIndex + 1).padStart(2, "0")} / {String(mockups.length).padStart(2, "0")}
+          </div>
+          {projectLink ? (
+            <a href={projectLink} target="_blank" rel="noreferrer" className="pointer-events-auto group/link flex items-center gap-3 text-right text-sm font-medium text-ink transition-colors hover:text-accent" aria-label="Visit live website">
+              <span>Visit live website</span>
+              <ArrowUpRight size={16} className="shrink-0 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+            </a>
+          ) : (
+            <div className="text-right">
+              <p className="text-[0.65rem] uppercase tracking-[0.16em] text-faint-ink">Release status</p>
+              <p className="mt-1 text-sm font-medium text-ink">Live website coming soon</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
