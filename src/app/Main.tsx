@@ -90,7 +90,7 @@ export default function Main() {
                       ) : item.image && item.imageAlt ? (
                         <div className="relative h-9" style={{ width: item.imageSize ?? 92 }}>
                           <ResilientImage src={item.image} alt={item.imageAlt} fill sizes={`${item.imageSize ?? 92}px`} className="journey-logo-light object-contain object-left" />
-                          <ResilientImage src={item.imageBw ?? item.image} alt="" fill sizes={`${item.imageSize ?? 92}px`} aria-hidden className={`journey-logo-dark object-contain object-left ${item.imageBw ? "" : "journey-logo-fallback"}`} />
+                          <ResilientImage src={item.imageBw ?? item.image} alt="" fill sizes={`${item.imageSize ?? 92}px`} aria-hidden className="journey-logo-dark journey-logo-fallback object-contain object-left" />
                         </div>
                       ) : null}
                     </div>
