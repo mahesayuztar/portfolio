@@ -4,6 +4,11 @@ import { ResilientImage } from "@/components/ui/ResilientImage";
 import { achievements, certificates } from "@/data/achievements";
 import type { Metadata } from "next";
 import Link from "next/link";
+import bridge1Image from "../../../public/images/recognition/bridge-1-achievement_11zon.webp";
+import bridge5Image from "../../../public/images/recognition/bridge-5-achievement_11zon.webp";
+import mcfItbImage from "../../../public/images/recognition/mcf-itb_8_11zon.webp";
+import robotics3Image from "../../../public/images/recognition/robotics-3-achievement_11zon.webp";
+import robotics4Image from "../../../public/images/recognition/robotics-4-achievement_11zon.webp";
 
 export const metadata: Metadata = {
   title: "Recognition | Mahesa Yuztar",
@@ -13,12 +18,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const recognitionImages = [
-  { src: "/images/recognition/mcf-itb_8_11zon.webp", alt: "Mahesa and his team at the MCF ITB data science competition", className: "md:col-span-7 md:row-span-2" },
-  { src: "/images/recognition/bridge-1-achievement_11zon.webp", alt: "Mahesa receiving recognition at a competitive bridge tournament", className: "md:col-span-5" },
-  { src: "/images/recognition/bridge-5-achievement_11zon.webp", alt: "Mahesa and his bridge team with their achievement", className: "md:col-span-5" },
-  { src: "/images/recognition/robotics-3-achievement_11zon.webp", alt: "Mahesa and the robotics team at a competition", className: "md:col-span-6" },
-  { src: "/images/recognition/robotics-4-achievement_11zon.webp", alt: "The robotics team celebrating their competition result", className: "md:col-span-6" },
+const bridgeImages = [
+  { src: bridge1Image, alt: "Mahesa receiving recognition at a competitive bridge tournament" },
+  { src: bridge5Image, alt: "Mahesa and his bridge team with their achievement" },
+];
+
+const roboticsImages = [
+  { src: robotics3Image, alt: "Mahesa and the robotics team at a competition" },
+  { src: robotics4Image, alt: "The robotics team celebrating their competition result" },
 ];
 
 export default function RecognitionPage() {
@@ -34,10 +41,22 @@ export default function RecognitionPage() {
 
       <section className="section-rule py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)]">
-          <div className="grid auto-rows-[11rem] grid-cols-1 gap-3 md:grid-cols-12 md:auto-rows-[12rem]">
-            {recognitionImages.map((image) => (
-              <figure key={image.src} className={`group relative overflow-hidden border border-border bg-surface ${image.className}`}>
-                <ResilientImage src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 55vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+          <div className="grid items-start gap-3 md:grid-cols-12">
+            <figure className="group overflow-hidden border border-border bg-surface md:col-span-7">
+              <ResilientImage src={mcfItbImage} alt="Mahesa and his team at the MCF ITB data science competition" sizes="(min-width: 768px) 58vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+            </figure>
+            <div className="grid gap-3 md:col-span-5">
+              {bridgeImages.map((image) => (
+                <figure key={image.src.src} className="group overflow-hidden border border-border bg-surface">
+                  <ResilientImage src={image.src} alt={image.alt} sizes="(min-width: 768px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+                </figure>
+              ))}
+            </div>
+          </div>
+          <div className="mt-3 grid gap-3 md:grid-cols-2">
+            {roboticsImages.map((image) => (
+              <figure key={image.src.src} className="group overflow-hidden border border-border bg-surface">
+                <ResilientImage src={image.src} alt={image.alt} sizes="(min-width: 768px) 50vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
               </figure>
             ))}
           </div>
