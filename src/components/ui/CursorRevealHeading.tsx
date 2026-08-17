@@ -8,7 +8,7 @@ type CursorRevealHeadingProps = {
   as?: "h1" | "h2";
 };
 
-const REVEAL_RADIUS = 150;
+const REVEAL_RADIUS = 200;
 const PROXIMITY_DISTANCE = 96;
 
 export function CursorRevealHeading({ children, className = "", as: Heading = "h1" }: CursorRevealHeadingProps) {
@@ -53,7 +53,7 @@ export function CursorRevealHeading({ children, className = "", as: Heading = "h
   return (
     <div className="relative">
       <Heading ref={headingRef} className={className}>{children}</Heading>
-      <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-hidden transition-opacity duration-150 ${position.isVisible ? "opacity-100" : "opacity-0"}`} style={{ clipPath: `circle(${REVEAL_RADIUS}px at ${position.x}px ${position.y}px)` }}>
+      <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-visible transition-opacity duration-150 ${position.isVisible ? "opacity-100" : "opacity-0"}`} style={{ clipPath: `circle(${REVEAL_RADIUS}px at ${position.x}px ${position.y}px)` }}>
         <Heading className={`${className} !text-accent`}>{children}</Heading>
       </div>
     </div>

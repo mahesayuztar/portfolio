@@ -14,7 +14,7 @@ export const journey: JourneyItem[] = [
   whatHappened:
     "Work across a production ERP system where financial processes, inventory, sales, procurement, and other operational modules are tightly interconnected.",
   whatIWorked:
-    "Designed and maintained financial logic including general ledger, accounts receivable, balance sheets, auto-posting, and inventory costing (HPP), while supporting sales, procurement, and other ERP modules. Also developed a scalable website builder architecture focused on reusable components, package-based systems, and long-term extensibility.",
+    "Designed and maintained financial logic including general ledger, accounts receivable, balance sheets, auto-posting, and inventory costing (COGS), while supporting sales, procurement, and other ERP modules. Also developed a scalable website builder architecture focused on reusable components, package-based systems, and long-term extensibility.",
   tech: [
     "Laravel",
     "Next.js",
@@ -29,7 +29,7 @@ export const journey: JourneyItem[] = [
     id: "solveit",
     image: "/images/home/solve-it_2_11zon.webp",
     imageAlt: "Solveit.id logo",
-    imageSize: 280,
+    imageSize: 110,
     period: "Jul 2025 — Feb 2026",
     title: "Backend Programmer",
     organization: "Solveit.id",
@@ -52,7 +52,7 @@ export const journey: JourneyItem[] = [
     id: "pln",
     image: "/images/home/pln logo_1_11zon.webp",
     imageAlt: "PLN Nusantara Power logo",
-    imageSize: 200,
+    imageSize: 140,
     period: "Mar — Jun 2025",
     title: "IT Intern",
     organization: "PLN Nusantara Power UP Brantas",
@@ -66,7 +66,7 @@ export const journey: JourneyItem[] = [
     image: "/images/home/UiTM-Logo_4_11zon.webp",
     imageBw: "/images/home/uitm-bw.webp",
     imageAlt: "UiTM logo",
-    imageSize: 150,
+    imageSize: 110,
     period: "Aug — Sep 2024",
     title: "Robotic Delegate & Team Lead",
     organization: "2nd Global Project Based Learning, UiTM Penang",

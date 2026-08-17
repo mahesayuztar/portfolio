@@ -84,9 +84,9 @@ export default function Main() {
                 >
                   <div>
                     <p className="text-xs leading-5 text-muted-ink">{item.period}</p>
-                    <div className="mt-4 flex min-h-16 items-center gap-3">
+                    <div className="mt-1 flex min-h-16 items-center gap-3">
                       {item.id === "teacher" ? (
-                        <GraduationCap size={64} strokeWidth={1.35} className="journey-logo-fallback text-accent" aria-label="Teaching" />
+                        <GraduationCap size={56} strokeWidth={1.35} className="journey-logo-fallback text-accent" aria-label="Teaching" />
                       ) : item.image && item.imageAlt ? (
                         <div className="relative" style={{ width: item.imageSize ?? 92, height: Math.min(item.imageSize ?? 92, 96) }}>
                           <ResilientImage src={item.image} alt={item.imageAlt} fill sizes={`${item.imageSize ?? 92}px`} className="journey-logo-light object-contain object-left" />
@@ -130,14 +130,14 @@ export default function Main() {
               title="I’ve built a few things worth showing."
             />
             <div className="mt-16 space-y-4">
-              {projects.map((project) => (
-                <article
-                  key={project.slug}
-                  className="group grid gap-8 border border-border bg-background p-6 transition-colors hover:border-border-strong sm:p-8 lg:grid-cols-[5rem_1fr_1fr_auto] lg:items-start"
-                >
-                  <span className="font-heading text-sm text-accent">
-                    {project.index}
-                  </span>
+              {projects.map((project, _index) => (
+  <article
+    key={project.slug}
+    className="group grid gap-8 border border-border bg-background p-6 transition-colors hover:border-border-strong sm:p-8 lg:grid-cols-[5rem_1fr_1fr_auto] lg:items-start"
+  >
+    <span className="font-heading text-sm text-accent">
+      {String(_index + 1).padStart(2, "0")}
+    </span>
                   <div>
                     <p className="text-xs text-muted-ink">
                       {project.category} · {project.year}

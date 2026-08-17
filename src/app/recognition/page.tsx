@@ -29,13 +29,16 @@ export default function RecognitionPage() {
       <section className="py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)]">
           <Link href="/" className="text-xs text-muted-ink hover:text-ink">← Back to profile</Link>
-          <CursorRevealHeading className="mt-14 max-w-4xl text-balance text-[clamp(3.5rem,9vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">Results, and the work behind them.</CursorRevealHeading>
+          <div className="mt-14">
+<CursorRevealHeading className="max-w-4xl text-balance text-[clamp(3.5rem,9vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">Results, and the work behind them.</CursorRevealHeading>
+
+          </div>
         </div>
       </section>
 
       <section className="section-rule py-20 sm:py-28">
         <div className="mx-auto grid w-[min(100%-40px,1180px)] items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div className="grid gap-3 lg:sticky lg:top-24">
+          <div className="grid gap-3 lg:top-24">
             <figure className="group overflow-hidden border border-border bg-surface">
               <ResilientImage src={mcfItbImage} alt="Mahesa and his team at the MCF ITB data science competition" sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
             </figure>

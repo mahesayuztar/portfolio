@@ -1,6 +1,5 @@
 export interface Project {
   slug: string;
-  index: string;
   title: string;
   category: string;
   year: string;
@@ -9,6 +8,7 @@ export interface Project {
   stack: string[];
   problem: string;
   solution: string;
+  link?: string;
   internal?: boolean;
   mockups: ProjectMockup[];
 }

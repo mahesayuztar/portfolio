@@ -1,14 +1,67 @@
 "use client";
 
 import Image, { type ImageProps } from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type ResilientImageProps = ImageProps & {
   fallbackLabel?: string;
+  isCaching?: boolean;
 };
 
-export function ResilientImage({ alt, className, fallbackLabel = "Image unavailable", fill, onError, ...props }: ResilientImageProps) {
-  const [hasError, setHasError] = useState(false);
+const IMAGE_CACHE_PREFIX = "resilient-image:";
+
+export function ResilientImage({ alt, className, fallbackLabel = "Image unavailable", fill, isCaching = false, onError, src, ...props }: ResilientImageProps) {
+  const [failedSrc, setFailedSrc] = useState<string>();
+  const [cachedImage, setCachedImage] = useState<{ sourceUrl: string; dataUrl: string }>();
+  const sourceUrl = typeof src === "string" ? src : "src" in src ? src.src : src.default.src;
+  const cachedSrc = isCaching && cachedImage?.sourceUrl === sourceUrl ? cachedImage.dataUrl : undefined;
+  const displayedSrc = cachedSrc ?? sourceUrl;
+  const hasError = failedSrc === displayedSrc;
+
+  useEffect(() => {
+    if (!isCaching) {
+      return;
+    }
+
+    const cacheKey = `${IMAGE_CACHE_PREFIX}${sourceUrl}`;
+
+    try {
+      const storedSrc = window.localStorage.getItem(cacheKey);
+
+      if (storedSrc) {
+        Promise.resolve().then(() => setCachedImage({ sourceUrl, dataUrl: storedSrc }));
+        return;
+      }
+    } catch {
+      return;
+    }
+
+    const abortController = new AbortController();
+
+    fetch(sourceUrl, { signal: abortController.signal })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Unable to cache image: ${response.status}`);
+        }
+
+        return response.blob();
+      })
+      .then((blob) => new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result));
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(blob);
+      }))
+      .then((dataUrl) => {
+        try {
+          window.localStorage.setItem(cacheKey, dataUrl);
+          setCachedImage({ sourceUrl, dataUrl });
+        } catch {}
+      })
+      .catch(() => undefined);
+
+    return () => abortController.abort();
+  }, [isCaching, sourceUrl]);
 
   if (hasError) {
     return (
@@ -22,5 +75,5 @@ export function ResilientImage({ alt, className, fallbackLabel = "Image unavaila
     );
   }
 
-  return <Image {...props} alt={alt} className={className} fill={fill} onError={(event) => { setHasError(true); onError?.(event); }} />;
+  return <Image {...props} src={cachedSrc ?? src} alt={alt} className={className} fill={fill} onError={(event) => { setFailedSrc(displayedSrc); onError?.(event); }} />;
 }
