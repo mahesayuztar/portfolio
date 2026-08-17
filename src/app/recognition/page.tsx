@@ -7,7 +7,6 @@ import Link from "next/link";
 import bridge1Image from "../../../public/images/recognition/bridge-1-achievement_11zon.webp";
 import bridge5Image from "../../../public/images/recognition/bridge-5-achievement_11zon.webp";
 import mcfItbImage from "../../../public/images/recognition/mcf-itb_8_11zon.webp";
-import robotics3Image from "../../../public/images/recognition/robotics-3-achievement_11zon.webp";
 import robotics4Image from "../../../public/images/recognition/robotics-4-achievement_11zon.webp";
 
 export const metadata: Metadata = {
@@ -23,11 +22,6 @@ const bridgeImages = [
   { src: bridge5Image, alt: "Mahesa and his bridge team with their achievement" },
 ];
 
-const roboticsImages = [
-  { src: robotics3Image, alt: "Mahesa and the robotics team at a competition" },
-  { src: robotics4Image, alt: "The robotics team celebrating their competition result" },
-];
-
 export default function RecognitionPage() {
   return (
     <main>
@@ -40,27 +34,23 @@ export default function RecognitionPage() {
       </section>
 
       <section className="section-rule py-20 sm:py-28">
-        <div className="mx-auto w-[min(100%-40px,1180px)]">
-          <div className="grid items-start gap-3 md:grid-cols-12">
-            <figure className="group overflow-hidden border border-border bg-surface md:col-span-7">
-              <ResilientImage src={mcfItbImage} alt="Mahesa and his team at the MCF ITB data science competition" sizes="(min-width: 768px) 58vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+        <div className="mx-auto grid w-[min(100%-40px,1180px)] items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div className="grid gap-3 lg:sticky lg:top-24">
+            <figure className="group overflow-hidden border border-border bg-surface">
+              <ResilientImage src={mcfItbImage} alt="Mahesa and his team at the MCF ITB data science competition" sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
             </figure>
-            <div className="grid gap-3 md:col-span-5">
+            <div className="grid grid-cols-2 gap-3">
               {bridgeImages.map((image) => (
                 <figure key={image.src.src} className="group overflow-hidden border border-border bg-surface">
-                  <ResilientImage src={image.src} alt={image.alt} sizes="(min-width: 768px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+                  <ResilientImage src={image.src} alt={image.alt} sizes="(min-width: 1024px) 21vw, 50vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
                 </figure>
               ))}
             </div>
+            <figure className="group overflow-hidden border border-border bg-surface">
+              <ResilientImage src={robotics4Image} alt="The robotics team celebrating their competition result" sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+            </figure>
           </div>
-          <div className="mt-3 grid gap-3 md:grid-cols-2">
-            {roboticsImages.map((image) => (
-              <figure key={image.src.src} className="group overflow-hidden border border-border bg-surface">
-                <ResilientImage src={image.src} alt={image.alt} sizes="(min-width: 768px) 50vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
-              </figure>
-            ))}
-          </div>
-          <ol className="mt-16 border-t border-border">
+          <ol className="border-t border-border">
             {achievements.map((achievement, _index) => (
               <li key={achievement.id} className="border-b border-border py-8">
                 <div className="flex items-start justify-between gap-6"><span className="font-heading text-xs text-faint-ink">{String(_index + 1).padStart(2, "0")}</span><span className="text-xs text-accent">{achievement.year}</span></div>
