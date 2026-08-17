@@ -123,7 +123,6 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
   const isPausedRef = useRef(false);
   const activeIndexRef = useRef(0);
   const directionRef = useRef<1 | -1>(1);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   function handleGalleryScroll() {
     const gallery = galleryRef.current;
@@ -137,7 +136,6 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
     }, 0);
 
     activeIndexRef.current = closestIndex;
-    setActiveIndex(closestIndex);
   }
 
   useEffect(() => {
@@ -167,7 +165,7 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
   return (
     <div
       className="group/mockups relative"
-      onMouseEnter={() => { isPausedRef.current = true; }}
+      onMouseMove={() => { isPausedRef.current = true; }}
       onMouseLeave={() => { isPausedRef.current = false; }}
       onFocusCapture={() => { isPausedRef.current = true; }}
       onBlurCapture={(event) => {
@@ -183,9 +181,6 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
           ))}
         </div>
         <div className="project-gallery-status pointer-events-none absolute inset-x-0 bottom-0 z-10 flex min-h-28 items-end justify-between gap-5 px-5 pb-5 pt-14 sm:min-h-32 sm:px-8 sm:pb-7 sm:pt-16">
-          <div className="shrink-0 font-heading text-xs tracking-[0.12em] text-faint-ink">
-            {String(activeIndex + 1).padStart(2, "0")} / {String(mockups.length).padStart(2, "0")}
-          </div>
           {projectLink ? (
             <a href={projectLink} target="_blank" rel="noreferrer" className="pointer-events-auto group/link flex items-center gap-3 text-right text-sm font-medium text-ink transition-colors hover:text-accent" aria-label="Visit live website">
               <span>Visit live website</span>
