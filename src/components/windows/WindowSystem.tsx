@@ -193,7 +193,6 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
             </a>
           ) : (
             <div className="text-right">
-              <p className="text-[0.65rem] uppercase tracking-[0.16em] text-faint-ink">Release status</p>
               <p className="mt-1 text-sm font-medium text-ink">Live website coming soon</p>
             </div>
           )}

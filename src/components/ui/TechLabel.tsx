@@ -11,10 +11,13 @@ import {
   SiLinux,
   SiMysql,
   SiNextdotjs,
+  SiNodedotjs,
   SiPhp,
   SiPostgresql,
+  SiPrisma,
   SiPython,
   SiReact,
+  SiSupabase,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
@@ -32,10 +35,13 @@ const technologyIcons: Record<string, IconType> = {
   Linux: SiLinux,
   MySQL: SiMysql,
   "Next.js": SiNextdotjs,
+  "Node.js": SiNodedotjs,
   PHP: SiPhp,
   PostgreSQL: SiPostgresql,
+  Prisma: SiPrisma,
   Python: SiPython,
   React: SiReact,
+  Supabase: SiSupabase,
   "Tailwind CSS": SiTailwindcss,
   TypeScript: SiTypescript,
 };
@@ -59,20 +65,39 @@ type TechLabelProps = {
   variant?: "inline" | "list";
 };
 
-export function TechLabel({ technology, variant = "inline" }: TechLabelProps) {
+export function TechLabel({
+  technology,
+  variant = "inline",
+}: TechLabelProps) {
   const Icon = technologyIcons[technology];
   const iconPath = technologyIconPaths[technology];
 
   return (
-    <span className={`inline-flex items-center gap-2 text-muted-ink ${variant === "inline" ? "border-b border-border pb-1 text-xs" : "text-sm"}`}>
-      {Icon && <Icon className="size-3.5 shrink-0 text-accent" aria-hidden />}
-      {!Icon && iconPath && (
-        <span
-          className="size-3.5 shrink-0 bg-accent"
-          style={{ WebkitMask: `url(${iconPath}) center / contain no-repeat`, mask: `url(${iconPath}) center / contain no-repeat` }}
+    <span
+      className={`inline-flex items-center gap-2 text-muted-ink ${
+        variant === "inline"
+          ? "border-b border-border pb-1 text-xs"
+          : "text-sm"
+      }`}
+    >
+      {Icon && (
+        <Icon
+          className="size-3.5 shrink-0 text-accent"
           aria-hidden
         />
       )}
+
+      {!Icon && iconPath && (
+        <span
+          className="size-3.5 shrink-0 bg-accent"
+          style={{
+            WebkitMask: `url(${iconPath}) center / contain no-repeat`,
+            mask: `url(${iconPath}) center / contain no-repeat`,
+          }}
+          aria-hidden
+        />
+      )}
+
       <span>{technology}</span>
     </span>
   );
