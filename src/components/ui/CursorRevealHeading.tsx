@@ -51,7 +51,7 @@ export function CursorRevealHeading({ children, className = "", as: Heading = "h
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative" data-reveal="heading">
       <Heading ref={headingRef} className={className}>{children}</Heading>
       <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-visible transition-opacity duration-150 ${position.isVisible ? "opacity-100" : "opacity-0"}`} style={{ clipPath: `circle(${REVEAL_RADIUS}px at ${position.x}px ${position.y}px)` }}>
         <Heading className={`${className} !text-accent`}>{children}</Heading>

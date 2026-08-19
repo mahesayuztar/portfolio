@@ -81,7 +81,7 @@ export default function BeyondCodePage() {
       <SiteHeader />
       <section className="py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)]">
-          <Link href="/" className="text-xs text-muted-ink hover:text-ink">← Back to profile</Link>
+          <Link href="/" className="text-xs text-muted-ink hover:text-ink" data-reveal="left">← Back to profile</Link>
           <div className="mt-14">
             <CursorRevealHeading className="max-w-4xl text-balance text-[clamp(3.5rem,9vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">The other places I learned to build.</CursorRevealHeading>
           </div>
@@ -90,9 +90,11 @@ export default function BeyondCodePage() {
 
       <section className="section-rule py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)] columns-2 gap-3 md:columns-3 lg:columns-4">
-          {beyondCodeImages.map((image) => (
-            <figure key={image.src.src} className="group mb-3 break-inside-avoid overflow-hidden border border-border bg-surface">
-              <ResilientImage src={image.src} alt={image.alt} sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.025]" />
+          {beyondCodeImages.map((image, _index) => (
+            <figure key={image.src.src} className="group mb-3 break-inside-avoid overflow-hidden border border-border bg-surface" data-reveal="image" data-reveal-delay={String((_index % 4) * 75)}>
+              <div data-parallax={String(_index % 2 === 0 ? 14 : -14)}>
+                <ResilientImage src={image.src} alt={image.alt} sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.025]" />
+              </div>
             </figure>
           ))}
         </div>
@@ -100,10 +102,12 @@ export default function BeyondCodePage() {
 
       <section className="section-rule py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)]">
-          {chapters.map((chapter) => (
+          {chapters.map((chapter, _index) => (
             <article
               key={chapter.number}
               className="grid gap-6 border-b border-border py-12 first:border-t md:grid-cols-[5rem_0.9fr_1.1fr] md:gap-10"
+              data-reveal="row"
+              data-reveal-delay={String((_index % 3) * 70)}
             >
               <span className="font-heading text-xs text-accent">
                 {chapter.number}
@@ -119,11 +123,11 @@ export default function BeyondCodePage() {
 
       <section className="section-rule bg-surface py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)]">
-          <p className="font-heading text-xs uppercase tracking-[0.2em] text-accent">
+          <p className="font-heading text-xs uppercase tracking-[0.2em] text-accent" data-reveal="left">
             Communities
           </p>
           <div className="mt-10 grid border-t border-border md:grid-cols-3">
-            <div className="border-b border-border p-6 md:border-r">
+            <div className="border-b border-border p-6 md:border-r" data-reveal="up">
               <p className="text-xs text-faint-ink">2023–2025</p>
               <h2 className="mt-3 text-xl font-medium">
                 Dewantara Research Team
@@ -132,14 +136,14 @@ export default function BeyondCodePage() {
                 Humanoid Soccer Robot · Programming
               </p>
             </div>
-            <div className="border-b border-border p-6 md:border-r">
+            <div className="border-b border-border p-6 md:border-r" data-reveal="up" data-reveal-delay="90">
               <p className="text-xs text-faint-ink">2025–2026</p>
               <h2 className="mt-3 text-xl font-medium">
                 Basreng Basah Nusantara
               </h2>
               <p className="mt-2 text-sm text-muted-ink">Front Crew</p>
             </div>
-            <div className="border-b border-border p-6">
+            <div className="border-b border-border p-6" data-reveal="up" data-reveal-delay="180">
               <p className="text-xs text-faint-ink">2022–2023</p>
               <h2 className="mt-3 text-xl font-medium">
                 Forum Mahasiswa Pasuruan

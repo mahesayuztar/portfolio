@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, IBM_Plex_Sans } from "next/font/google";
 import { TouchFeedback } from "@/components/ui/TouchFeedback";
+import { MotionController } from "@/components/ui/MotionController";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -58,6 +59,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-full bg-background text-ink">
+        <MotionController />
         {children}
         <TouchFeedback />
       </body>

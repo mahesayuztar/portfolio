@@ -28,7 +28,7 @@ export default function Main() {
               <CursorRevealHeading className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">
                 Building useful systems from unclear problems.
               </CursorRevealHeading>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
+              <div className="mt-10 flex flex-wrap items-center gap-3" data-reveal="up" data-reveal-delay="140">
                 <Button href="#projects">
                   Explore selected work <ArrowDown size={16} />
                 </Button>
@@ -48,7 +48,7 @@ export default function Main() {
             <SectionHeading
               title="Software is the medium. Clarity is the work."
             />
-            <div className="self-end">
+            <div className="self-end" data-reveal="row">
               <p className="max-w-2xl text-xl leading-9 tracking-[-0.015em] text-ink">
                 I work across backend systems, interfaces, data, infrastructure,
                 and the practical space between a client&apos;s request and a
@@ -76,10 +76,12 @@ export default function Main() {
               title="Progress measured in responsibility."
             />
             <ol className="mt-16 border-t border-border">
-              {journey.map((item) => (
+              {journey.map((item, _index) => (
                 <li
                   key={item.id}
                   className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 border-b border-border py-8 md:grid-cols-[17rem_1fr_auto] md:items-start md:gap-8"
+                  data-reveal="row"
+                  data-reveal-delay={String((_index % 3) * 60)}
                 >
                   <div>
                     <p className="text-xs leading-5 text-muted-ink">{item.period}</p>
@@ -132,6 +134,8 @@ export default function Main() {
                 <article
                   key={project.slug}
                   className="group grid gap-8 border border-border bg-background p-6 transition-colors hover:border-border-strong sm:p-8 lg:grid-cols-[5rem_1fr_1fr_auto] lg:items-start"
+                  data-reveal="row"
+                  data-reveal-delay={String((_index % 2) * 70)}
                 >
                   <span className="font-heading text-sm text-accent">
                     {String(_index + 1).padStart(2, "0")}
@@ -174,10 +178,12 @@ export default function Main() {
               title="Backend first, fullstack when needed."
             />
             <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-4">
-              {skillCategories.map((category) => (
+              {skillCategories.map((category, _index) => (
                 <article
                   key={category.id}
                   className="border-b border-border p-6 sm:border-r"
+                  data-reveal="up"
+                  data-reveal-delay={String((_index % 4) * 80)}
                 >
                   <h3 className="text-lg font-medium">{category.label}</h3>
                   <ul className="mt-6 space-y-2">
@@ -198,7 +204,7 @@ export default function Main() {
             <CursorRevealHeading className="max-w-5xl text-balance text-[clamp(3.6rem,10vw,6rem)] font-medium leading-[0.84] tracking-[-0.065em]">
               Have a problem worth giving a clear shape?
             </CursorRevealHeading>
-            <div className="mt-10 flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
+            <div className="mt-10 flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end" data-reveal="row">
               <Button href={`mailto:${contactEmail}`}>
                 Email Mahesa <ArrowUpRight size={16} />
               </Button>

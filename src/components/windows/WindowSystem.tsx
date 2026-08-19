@@ -7,6 +7,7 @@ import { contactEmail } from "@/data/social";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { ResilientImage } from "@/components/ui/ResilientImage";
 import { SocialLinks } from "@/components/ui/SocialLinks";
+import { ResumeViewer } from "@/components/windows/ResumeViewer";
 import type { ProjectMockup } from "@/types/content";
 import {
   ArrowUpRight,
@@ -28,6 +29,7 @@ import { Rnd } from "react-rnd";
 
 type WindowKind =
   | "profile"
+  | "resume"
   | "experience"
   | "project"
   | "achievement"
@@ -57,6 +59,7 @@ const WindowContext = createContext<WindowContextValue | null>(null);
 
 const windowDefaults: Record<WindowKind, { width: number; height: number }> = {
   profile: { width: 560, height: 520 },
+  resume: { width: 900, height: 700 },
   experience: { width: 620, height: 540 },
   project: { width: 760, height: 620 },
   achievement: { width: 620, height: 560 },
@@ -110,6 +113,7 @@ function getWindowTitle(windowItem: OpenWindow) {
     string
   > = {
     profile: "About Mahesa",
+    resume: "Mahesa Yuztar — Résumé",
     credentials: "Credentials & learning",
     beyond: "Beyond the code",
     contact: "Start a conversation",
@@ -232,18 +236,18 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
             <dd className="mt-1 text-sm">TOEFL ITP 553</dd>
           </div>
         </dl>
-        <a
-          href="/resume"
-          target="_blank"
-          rel="noreferrer"
+        <WindowTrigger
+          kind="resume"
           className="inline-flex min-h-11 items-center gap-2 rounded-full border border-accent bg-accent px-5 text-sm font-medium text-accent-ink transition-colors hover:bg-accent-strong"
         >
           Check out my résumé
           <ArrowUpRight size={16} aria-hidden />
-        </a>
+        </WindowTrigger>
       </div>
     );
   }
+
+  if (windowItem.kind === "resume") return <ResumeViewer />;
 
   if (windowItem.kind === "experience") {
     const item = journey.find(
@@ -524,7 +528,9 @@ function WindowFrame({
           <X size={18} />
         </button>
       </div>
-      <div className="min-h-0 flex-1 touch-pan-y overflow-y-auto overscroll-contain p-5 [-webkit-overflow-scrolling:touch] sm:p-7">
+      <div
+        className={`min-h-0 flex-1 touch-pan-y overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] ${windowItem.kind === "resume" ? "p-0" : "p-5 sm:p-7"}`}
+      >
         <WindowContent windowItem={windowItem} />
       </div>
     </section>

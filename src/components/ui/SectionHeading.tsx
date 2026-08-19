@@ -7,7 +7,7 @@ export function SectionHeading({ title, subtitle, className = "" }: SectionHeadi
   return (
     <div className={className}>
       <CursorRevealHeading as="h2" className="max-w-3xl text-balance text-[clamp(2rem,5vw,4.5rem)] font-medium leading-[0.98] tracking-[-0.04em] text-ink">{title}</CursorRevealHeading>
-      {subtitle && <p className="mt-5 max-w-2xl text-base leading-7 text-muted-ink">{subtitle}</p>}
+      {subtitle && <p className="mt-5 max-w-2xl text-base leading-7 text-muted-ink" data-reveal="up" data-reveal-delay="100">{subtitle}</p>}
     </div>
   );
 }
