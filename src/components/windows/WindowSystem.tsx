@@ -232,6 +232,15 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
             <dd className="mt-1 text-sm">TOEFL ITP 553</dd>
           </div>
         </dl>
+        <a
+          href="/resume"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-accent bg-accent px-5 text-sm font-medium text-accent-ink transition-colors hover:bg-accent-strong"
+        >
+          Check out my résumé
+          <ArrowUpRight size={16} aria-hidden />
+        </a>
       </div>
     );
   }
