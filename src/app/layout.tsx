@@ -48,6 +48,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const themeScript = `(() => { try { const saved = localStorage.getItem("portfolio-theme"); const theme = saved === "light" || saved === "dark" ? saved : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = theme; } catch { document.documentElement.dataset.theme = "light"; } })();`;
+  const motionScript = `document.documentElement.dataset.motion = "ready";`;
 
   return (
     <html
@@ -57,6 +58,8 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: motionScript }} />
+        <noscript><style>{`[data-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; }`}</style></noscript>
       </head>
       <body className="min-h-full bg-background text-ink">
         <MotionController />

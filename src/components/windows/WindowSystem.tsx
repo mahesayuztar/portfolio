@@ -142,8 +142,6 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
   useEffect(() => {
     if (mockups.length < 2) return;
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     const interval = window.setInterval(() => {
       if (isPausedRef.current) return;
 
@@ -156,7 +154,7 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
       if (gallery) {
         gallery.scrollTo({
           left: activeIndexRef.current * gallery.clientWidth,
-          behavior: prefersReducedMotion ? "auto" : "smooth",
+          behavior: "smooth",
         });
       }
     }, MOCKUP_SCROLL_INTERVAL);
@@ -177,12 +175,12 @@ function ProjectMockupGallery({ mockups, projectLink }: { mockups: ProjectMockup
       <div className="relative overflow-hidden bg-surface">
         <div ref={galleryRef} onScroll={handleGalleryScroll} className="project-gallery flex touch-pan-x snap-x snap-mandatory overflow-x-auto scroll-smooth overscroll-x-contain">
           {mockups.map((mockup) => (
-            <figure key={mockup.src} className="flex w-full shrink-0 snap-start snap-always items-start justify-center px-5 pb-28 pt-5 sm:px-10 sm:pb-32 sm:pt-8">
+            <figure key={mockup.src} className="flex w-full shrink-0 snap-start snap-always items-start justify-center p-5 sm:px-10 sm:py-8">
               <ResilientImage src={mockup.src} alt={mockup.alt} width={1440} height={900} className="project-mockup-image aspect-[16/10] w-full object-contain" />
             </figure>
           ))}
         </div>
-        <div className="project-gallery-status pointer-events-none absolute inset-x-0 bottom-0 z-10 flex min-h-28 items-end justify-between gap-5 px-5 pb-5 pt-14 sm:min-h-32 sm:px-8 sm:pb-7 sm:pt-16">
+        <div className="pointer-events-none flex min-h-20 items-center justify-end border-t border-border bg-background px-5 py-4 sm:px-8">
           {projectLink ? (
             <a href={projectLink} target="_blank" rel="noreferrer" className="pointer-events-auto group/link flex items-center gap-3 text-right text-sm font-medium text-ink transition-colors hover:text-accent" aria-label="Visit live website">
               <span>Visit live website</span>

@@ -106,7 +106,7 @@ export default function BeyondCodePage() {
             <article
               key={chapter.number}
               className="grid gap-6 border-b border-border py-12 first:border-t md:grid-cols-[5rem_0.9fr_1.1fr] md:gap-10"
-              data-reveal="row"
+              data-reveal="up"
               data-reveal-delay={String((_index % 3) * 70)}
             >
               <span className="font-heading text-xs text-accent">
@@ -126,8 +126,8 @@ export default function BeyondCodePage() {
           <p className="font-heading text-xs uppercase tracking-[0.2em] text-accent" data-reveal="left">
             Communities
           </p>
-          <div className="mt-10 grid border-t border-border md:grid-cols-3">
-            <div className="border-b border-border p-6 md:border-r" data-reveal="up">
+          <div className="mt-10 grid border-t border-border md:grid-cols-3" data-reveal="up">
+            <div className="border-b border-border p-6 md:border-r">
               <p className="text-xs text-faint-ink">2023–2025</p>
               <h2 className="mt-3 text-xl font-medium">
                 Dewantara Research Team
@@ -136,14 +136,14 @@ export default function BeyondCodePage() {
                 Humanoid Soccer Robot · Programming
               </p>
             </div>
-            <div className="border-b border-border p-6 md:border-r" data-reveal="up" data-reveal-delay="90">
+            <div className="border-b border-border p-6 md:border-r">
               <p className="text-xs text-faint-ink">2025–2026</p>
               <h2 className="mt-3 text-xl font-medium">
                 Basreng Basah Nusantara
               </h2>
               <p className="mt-2 text-sm text-muted-ink">Front Crew</p>
             </div>
-            <div className="border-b border-border p-6" data-reveal="up" data-reveal-delay="180">
+            <div className="border-b border-border p-6">
               <p className="text-xs text-faint-ink">2022–2023</p>
               <h2 className="mt-3 text-xl font-medium">
                 Forum Mahasiswa Pasuruan

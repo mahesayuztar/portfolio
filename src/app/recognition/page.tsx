@@ -59,9 +59,9 @@ export default function RecognitionPage() {
               </div>
             </figure>
           </div>
-          <ol className="border-t border-border">
+          <ol>
             {achievements.map((achievement, _index) => (
-              <li key={achievement.id} className="border-b border-border py-8" data-reveal="row" data-reveal-delay={String((_index % 3) * 60)}>
+              <li key={achievement.id} className="border-b border-border py-8 first:border-t" data-reveal="up" data-reveal-delay={String((_index % 3) * 60)}>
                 <div className="flex items-start justify-between gap-6"><span className="font-heading text-xs text-faint-ink">{String(_index + 1).padStart(2, "0")}</span><span className="text-xs text-accent">{achievement.year}</span></div>
                 <h2 className="mt-8 text-3xl font-medium tracking-[-0.035em]">{achievement.title}</h2>
                 <p className="mt-2 text-sm text-muted-ink">{achievement.event}</p>
@@ -75,8 +75,8 @@ export default function RecognitionPage() {
       <section className="section-rule bg-surface py-20 sm:py-28">
         <div className="mx-auto w-[min(100%-40px,1180px)]">
           <h2 className="text-5xl font-medium leading-none tracking-[-0.05em]" data-reveal="heading">Credentials.</h2>
-          <ul className="mt-14 grid border-t border-border md:grid-cols-2">
-            {certificates.map((certificate, _index) => <li key={certificate.id} className="grid grid-cols-[1fr_auto] gap-5 border-b border-border p-5 md:odd:border-r" data-reveal="up" data-reveal-delay={String((_index % 4) * 70)}><div><h3 className="text-sm font-medium">{certificate.title}</h3><p className="mt-2 text-xs text-muted-ink">{certificate.issuer}</p></div><span className="text-xs text-faint-ink">{certificate.year}</span></li>)}
+          <ul className="credential-grid mt-14 grid md:grid-cols-2">
+            {certificates.map((certificate) => <li key={certificate.id} className="grid grid-cols-[1fr_auto] gap-5 border-b border-border p-5 md:odd:border-r" data-reveal="up"><div><h3 className="text-sm font-medium">{certificate.title}</h3><p className="mt-2 text-xs text-muted-ink">{certificate.issuer}</p></div><span className="text-xs text-faint-ink">{certificate.year}</span></li>)}
           </ul>
         </div>
       </section>

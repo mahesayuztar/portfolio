@@ -75,12 +75,12 @@ export default function Main() {
             <SectionHeading
               title="Progress measured in responsibility."
             />
-            <ol className="mt-16 border-t border-border">
+            <ol className="mt-16">
               {journey.map((item, _index) => (
                 <li
                   key={item.id}
-                  className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 border-b border-border py-8 md:grid-cols-[17rem_1fr_auto] md:items-start md:gap-8"
-                  data-reveal="row"
+                  className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 border-b border-border py-8 first:border-t md:grid-cols-[17rem_1fr_auto] md:items-start md:gap-8"
+                  data-reveal="up"
                   data-reveal-delay={String((_index % 3) * 60)}
                 >
                   <div>
@@ -134,7 +134,7 @@ export default function Main() {
                 <article
                   key={project.slug}
                   className="group grid gap-8 border border-border bg-background p-6 transition-colors hover:border-border-strong sm:p-8 lg:grid-cols-[5rem_1fr_1fr_auto] lg:items-start"
-                  data-reveal="row"
+                  data-reveal="up"
                   data-reveal-delay={String((_index % 2) * 70)}
                 >
                   <span className="font-heading text-sm text-accent">
@@ -177,13 +177,11 @@ export default function Main() {
             <SectionHeading
               title="Backend first, fullstack when needed."
             />
-            <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-4">
-              {skillCategories.map((category, _index) => (
+            <div className="mt-16 grid border-t border-border sm:grid-cols-2 lg:grid-cols-4" data-reveal="up">
+              {skillCategories.map((category) => (
                 <article
                   key={category.id}
                   className="border-b border-border p-6 sm:border-r"
-                  data-reveal="up"
-                  data-reveal-delay={String((_index % 4) * 80)}
                 >
                   <h3 className="text-lg font-medium">{category.label}</h3>
                   <ul className="mt-6 space-y-2">
