@@ -129,13 +129,13 @@ export default function Main() {
             />
             <div className="mt-16 space-y-4">
               {projects.map((project, _index) => (
-  <article
-    key={project.slug}
-    className="group grid gap-8 border border-border bg-background p-6 transition-colors hover:border-border-strong sm:p-8 lg:grid-cols-[5rem_1fr_1fr_auto] lg:items-start"
-  >
-    <span className="font-heading text-sm text-accent">
-      {String(_index + 1).padStart(2, "0")}
-    </span>
+                <article
+                  key={project.slug}
+                  className="group grid gap-8 border border-border bg-background p-6 transition-colors hover:border-border-strong sm:p-8 lg:grid-cols-[5rem_1fr_1fr_auto] lg:items-start"
+                >
+                  <span className="font-heading text-sm text-accent">
+                    {String(_index + 1).padStart(2, "0")}
+                  </span>
                   <div>
                     <p className="text-xs text-muted-ink">
                       {project.category} · {project.year}
