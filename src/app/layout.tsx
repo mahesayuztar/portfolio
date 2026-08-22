@@ -18,6 +18,9 @@ const description =
   "Mahesa Yuztar is a software engineer in Malang building maintainable backend systems, fullstack products, and practical digital tools.";
 
 export const metadata: Metadata = {
+  verification: {
+    google: "jMV1D89XkPQWtQCKKfKS8hggzuN1eP3T_gvj8x-G7ow",
+  },
   metadataBase: new URL("https://mahesa-yuztar.vercel.app"),
   title: "Mahesa Yuztar",
   description,
