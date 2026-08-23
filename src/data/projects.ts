@@ -15,10 +15,10 @@ export const projects: Project[] = [
     solution:
       "Built a customizable personal finance system with multi-account balance management, transaction tracking, savings, debt and receivable management, dashboard analytics, monthly and yearly reports, and user-defined accounts and transaction categories to accommodate individual financial needs.",
     mockups: [
-      { src: "/images/projects/budgeting/1.webp", alt: "Budgeting application dashboard overview" },
-      { src: "/images/projects/budgeting/2.webp", alt: "Budgeting application transaction management" },
-      { src: "/images/projects/budgeting/3.webp", alt: "Budgeting application financial analytics" },
-      { src: "/images/projects/budgeting/4.webp", alt: "Budgeting application account settings" },
+      { src: "/images/projects/budgeting/1.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/budgeting/2.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/budgeting/3.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/budgeting/4.webp", alt: "Mahesa Yuztar" },
     ],
     link: "https://budgeting-khaki.vercel.app/dashboard"
   },
@@ -77,12 +77,12 @@ export const projects: Project[] = [
     solution:
       "Built authentication, Midtrans payment, timed exam delivery, scoring, answer discussion, result history, and VPS deployment.",
     mockups: [
-      { src: "/images/projects/mentorin/1.webp", alt: "Mentorin learning platform homepage" },
-      { src: "/images/projects/mentorin/2.webp", alt: "Mentorin examination package selection" },
-      { src: "/images/projects/mentorin/3.webp", alt: "Mentorin timed examination interface" },
-      { src: "/images/projects/mentorin/4.webp", alt: "Mentorin examination question interface" },
-      { src: "/images/projects/mentorin/5.webp", alt: "Mentorin examination result summary" },
-      { src: "/images/projects/mentorin/6.webp", alt: "Mentorin answer discussion interface" },
+      { src: "/images/projects/mentorin/1.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/mentorin/2.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/mentorin/3.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/mentorin/4.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/mentorin/5.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/mentorin/6.webp", alt: "Mahesa Yuztar" },
     ],
   },
   {
@@ -98,9 +98,9 @@ export const projects: Project[] = [
     solution:
       "Built authenticated citizen and admin flows with image attachments, complaint history, review, and responses.",
     mockups: [
-      { src: "/images/projects/solusi-desa/1.webp", alt: "Solusi Desa public complaint homepage" },
-      { src: "/images/projects/solusi-desa/2.webp", alt: "Solusi Desa complaint submission interface" },
-      { src: "/images/projects/solusi-desa/3.webp", alt: "Solusi Desa complaint tracking interface" },
+      { src: "/images/projects/solusi-desa/1.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/solusi-desa/2.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/solusi-desa/3.webp", alt: "Mahesa Yuztar" },
     ],
   },
   {
@@ -115,9 +115,9 @@ export const projects: Project[] = [
       "The prototype needed a clear public explanation for potential adopters.",
     solution: "Designed and deployed a responsive product narrative on Netlify.",
     mockups: [
-      { src: "/images/projects/fruit-guard/1.webp", alt: "FruitGuard+ product website introduction" },
-      { src: "/images/projects/fruit-guard/2.webp", alt: "FruitGuard+ product benefits section" },
-      { src: "/images/projects/fruit-guard/3.webp", alt: "FruitGuard+ product information section" },
+      { src: "/images/projects/fruit-guard/1.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/fruit-guard/2.webp", alt: "Mahesa Yuztar" },
+      { src: "/images/projects/fruit-guard/3.webp", alt: "Mahesa Yuztar" },
     ],
     link: "https://fruit-guard.netlify.app"
   },

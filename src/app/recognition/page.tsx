@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 };
 
 const bridgeImages = [
-  { src: bridge1Image, alt: "Mahesa receiving recognition at a competitive bridge tournament" },
-  { src: bridge5Image, alt: "Mahesa and his bridge team with their achievement" },
+  { src: bridge1Image, alt: "Mahesa Yuztar" },
+  { src: bridge5Image, alt: "Mahesa Yuztar" },
 ];
 
 export default function RecognitionPage() {
@@ -41,7 +41,7 @@ export default function RecognitionPage() {
           <div className="grid gap-3 lg:top-24">
             <figure className="group overflow-hidden border border-border bg-surface" data-reveal="image">
               <div data-parallax="16">
-                <ResilientImage src={mcfItbImage} alt="Mahesa and his team at the MCF ITB data science competition" sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+                <ResilientImage src={mcfItbImage} alt="Mahesa Yuztar" sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
               </div>
             </figure>
             <div className="grid grid-cols-2 gap-3">
@@ -55,7 +55,7 @@ export default function RecognitionPage() {
             </div>
             <figure className="group overflow-hidden border border-border bg-surface" data-reveal="image">
               <div data-parallax="18">
-                <ResilientImage src={robotics4Image} alt="The robotics team celebrating their competition result" sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+                <ResilientImage src={robotics4Image} alt="Mahesa Yuztar" sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]" />
               </div>
             </figure>
           </div>

@@ -91,7 +91,7 @@ export default function Main() {
                       ) : item.image && item.imageAlt ? (
                         <div className="relative" style={{ width: item.imageSize ?? 92, height: Math.min(item.imageSize ?? 92, 96) }}>
                           <ResilientImage src={item.image} alt={item.imageAlt} fill sizes={`${item.imageSize ?? 92}px`} className="journey-logo-light object-contain object-left" />
-                          <ResilientImage src={item.imageBw ?? item.image} alt="" fill sizes={`${item.imageSize ?? 92}px`} aria-hidden className="journey-logo-dark journey-logo-fallback object-contain object-left" />
+                          <ResilientImage src={item.imageBw ?? item.image} alt="Mahesa Yuztar" fill sizes={`${item.imageSize ?? 92}px`} aria-hidden className="journey-logo-dark journey-logo-fallback object-contain object-left" />
                         </div>
                       ) : null}
                     </div>

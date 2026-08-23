@@ -413,14 +413,14 @@ function WindowContent({ windowItem }: { windowItem: OpenWindow }) {
         <div className="grid gap-4 sm:grid-cols-2">
           <ResilientImage
             src="/images/beyond-code/mahesa-robotics_5_11zon_22_11zon.webp"
-            alt="Mahesa speaking while wearing his humanoid robotics team uniform"
+            alt="Mahesa Yuztar"
             width={900}
             height={1200}
             className="aspect-[4/5] w-full rounded-md object-cover object-top"
           />
           <ResilientImage
             src="/images/beyond-code/uitm-gpbl_3_11zon_17_11zon.webp"
-            alt="Mahesa receiving recognition at the UiTM Penang Global Project Based Learning program"
+            alt="Mahesa Yuztar"
             width={1200}
             height={1600}
             className="aspect-[4/5] w-full rounded-md object-cover"

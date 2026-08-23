@@ -9,8 +9,7 @@ export const achievements: Achievement[] = [
     context:
       "Earned second place in the Junior Team category, applying partnership coordination, probabilistic reasoning, and disciplined decision-making throughout a competitive bridge tournament.",
     image: "/images/recognition/bridge-1-achievement_11zon.webp",
-    imageAlt:
-      "Certificate awarding Mahesa Yuztar second place in the Junior Team category at the 3rd BTC Bridge Open Tournament 2026",
+    imageAlt: "Mahesa Yuztar",
   },
   {
     id: "mcf-itb",
@@ -19,7 +18,7 @@ export const achievements: Achievement[] = [
     year: "2024",
     context: "Worked with a team to turn an unfamiliar dataset into a clear analytical argument under competition pressure.",
     image: "/images/recognition/mcf-itb_8_11zon.webp",
-    imageAlt: "Mahesa and his team holding the second-place award at MCF ITB 2024",
+    imageAlt: "Mahesa Yuztar",
   },
   {
     id: "bridge-province",
