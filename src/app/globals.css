@@ -345,10 +345,13 @@ html[data-motion="ready"] [data-reveal="row"] > :nth-child(4) {
 }
 
 html[data-motion="ready"] [data-reveal][data-reveal-state="visible"] {
-  clip-path: inset(0);
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
   will-change: auto;
+}
+
+html[data-motion="ready"] [data-reveal="image"][data-reveal-state="visible"] {
+  clip-path: inset(0);
 }
 
 html[data-motion="ready"] [data-reveal="row"][data-reveal-state="visible"] > * {
