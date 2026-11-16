@@ -160,27 +160,27 @@ export const projects: Project[] = [
     ],
     link: "https://fruit-guard.netlify.app",
   },
-  {
-    slug: "govind-abra-enterprise",
-    title: "Govind Abra Enterprise",
-    category: "Business Platform",
-    year: "2024",
-    description:
-      "Certification registration, administration, and payment platform.",
-    role: "Fullstack Development",
-    stack: [
-      "Laravel",
-      "Tailwind CSS",
-      "MySQL",
-      "Docker",
-      "Laravel Sail",
-      "Midtrans",
-    ],
-    problem:
-      "Profile, registration, certification administration, and payments were handled in disconnected processes.",
-    solution:
-      "Unified participant registration, certification management, admin tools, and Midtrans payment in a Dockerized Laravel application.",
-    mockups: [],
-    internal: true,
-  },
+  // {
+  //   slug: "govind-abra-enterprise",
+  //   title: "Govind Abra Enterprise",
+  //   category: "Business Platform",
+  //   year: "2024",
+  //   description:
+  //     "Certification registration, administration, and payment platform.",
+  //   role: "Fullstack Development",
+  //   stack: [
+  //     "Laravel",
+  //     "Tailwind CSS",
+  //     "MySQL",
+  //     "Docker",
+  //     "Laravel Sail",
+  //     "Midtrans",
+  //   ],
+  //   problem:
+  //     "Profile, registration, certification administration, and payments were handled in disconnected processes.",
+  //   solution:
+  //     "Unified participant registration, certification management, admin tools, and Midtrans payment in a Dockerized Laravel application.",
+  //   mockups: [],
+  //   internal: true,
+  // },
 ];
