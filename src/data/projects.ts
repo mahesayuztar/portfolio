@@ -23,22 +23,6 @@ export const projects: Project[] = [
     link: "https://budgeting-khaki.vercel.app/dashboard",
   },
   {
-    slug: "sisgo-erp",
-    title: "ERP",
-    category: "Enterprise Resource Planning",
-    year: "2026",
-    description:
-      "Integrated ERP platform covering finance, sales, procurement, inventory, and other enterprise operations.",
-    role: "Software Engineer",
-    stack: ["Laravel", "Next.js", "SQL Server", "DataGrip"],
-    problem:
-      "Complex enterprise operations required financial, inventory, sales, and procurement processes to remain synchronized while maintaining accounting consistency across interconnected modules.",
-    solution:
-      "Developed and maintained ERP business logic with a primary focus on financial systems including general ledger, accounts receivable, balance sheets, automatic journal posting, inventory costing (COGS), and transaction flows across sales, procurement, inventory, and other operational modules.",
-    mockups: [],
-    internal: true,
-  },
-  {
     slug: "bridgeyok",
     title: "BridgeYok",
     category: "Real-Time Multiplayer Gaming Platform",
@@ -79,6 +63,23 @@ export const projects: Project[] = [
       },
     ],
     link: "https://bridgeyok-web.vercel.app/",
+  },
+  {
+    slug: "sisgo-erp",
+    title: "ERP",
+    category: "Enterprise Resource Planning",
+    year: "2026",
+    description:
+      "Integrated ERP platform covering finance, sales, procurement, inventory, and other enterprise operations.",
+    role: "Software Engineer",
+    stack: ["Laravel", "Next.js", "SQL Server", "DataGrip"],
+    problem:
+      "Complex enterprise operations required financial, inventory, sales, and procurement processes to remain synchronized while maintaining accounting consistency across interconnected modules.",
+
+    solution:
+      "Developed and maintained ERP business logic with a primary focus on financial systems including general ledger, accounts receivable, balance sheets, automatic journal posting, inventory costing (COGS), and transaction flows across sales, procurement, inventory, and other operational modules.",
+    mockups: [],
+    internal: true,
   },
   // {
   //   slug: "sisgo-website-builder",
