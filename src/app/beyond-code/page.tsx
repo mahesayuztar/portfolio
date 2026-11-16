@@ -4,6 +4,9 @@ import { ResilientImage } from "@/components/ui/ResilientImage";
 import type { Metadata } from "next";
 import Link from "next/link";
 // import bridge1Image from "../../../public/images/beyond-code/bridge-1-achievement_12_11zon.webp";
+import itsChallengeImage from "../../../public/images/recognition/its.webp";
+import kejurprov1Image from "../../../public/images/recognition/kejurprov1.webp";
+import kejurprov2Image from "../../../public/images/recognition/kejurprov2.webp";
 import bridge2Image from "../../../public/images/beyond-code/bridge-2_18_11zon.webp";
 import bridge3Image from "../../../public/images/beyond-code/bridge-3_19_11zon.webp";
 import bridge4Image from "../../../public/images/beyond-code/bridge-4_20_11zon.webp";
@@ -50,12 +53,15 @@ const chapters = [
   {
     number: "03",
     title: "Bridge sharpened decisions under uncertainty.",
-    text: "Competitive bridge is a partnership built on partial information. Winning an East Java provincial open-pairs event and placing third in a junior pairs championship reinforced pattern recognition, disciplined communication, and the ability to revise a plan without losing composure.",
+    text: "Competitive bridge is a partnership built on partial information. Winning the KU-26 Bridge ITS Challenge at national level and placing third at the KU-26 East Java Provincial Championship in 2026, alongside earlier provincial results, reinforced pattern recognition, disciplined communication, and the ability to revise a plan without losing composure.",
   },
 ];
 
 const beyondCodeImages = [
   { src: mahesaRoboticsImage, alt: "Mahesa Yuztar" },
+  { src: itsChallengeImage, alt: "KU-26 team at the Bridge ITS Challenge 2026 award ceremony" },
+  { src: kejurprov1Image, alt: "Bridge player competing at the KU-26 East Java Provincial Championship" },
+  { src: kejurprov2Image, alt: "Players at the KU-26 East Java Provincial Bridge Championship" },
   { src: bridge3Image, alt: "Mahesa Yuztar" },
   { src: robotics1Image, alt: "Mahesa Yuztar" },
   { src: pln1Image, alt: "Mahesa Yuztar" },
