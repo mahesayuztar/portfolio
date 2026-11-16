@@ -34,7 +34,7 @@ export const projects: Project[] = [
       "Next.js",
       "React",
       "TypeScript",
-      "Go",
+      "Golang",
       "PostgreSQL",
       "WebSocket",
       "C++",
