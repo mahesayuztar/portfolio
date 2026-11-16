@@ -8,7 +8,7 @@ export const projects: Project[] = [
     year: "2026",
     description:
       "Personal finance platform for managing balances, transactions, savings, debts, analytics, and financial reports across multiple accounts.",
-    role: "Fullstack Development — Product Design & Financial System Architecture",
+    role: "Fullstack Development",
     stack: ["Node.js", "Next.js", "Prisma", "Supabase", "PostgreSQL"],
     problem:
       "Managing personal finances across multiple bank accounts, cash balances, savings goals, debts, and transaction categories can become fragmented, making it difficult to understand overall financial health and spending patterns.",
@@ -20,50 +20,87 @@ export const projects: Project[] = [
       { src: "/images/projects/budgeting/3.webp", alt: "Mahesa Yuztar" },
       { src: "/images/projects/budgeting/4.webp", alt: "Mahesa Yuztar" },
     ],
-    link: "https://budgeting-khaki.vercel.app/dashboard"
+    link: "https://budgeting-khaki.vercel.app/dashboard",
   },
   {
-  slug: "sisgo-erp",
-  title: "ERP",
-  category: "Enterprise Resource Planning",
-  year: "2026",
-  description:
-    "Integrated ERP platform covering finance, sales, procurement, inventory, and other enterprise operations.",
-  role: "Software Engineer — Financial Business Logic & ERP Development",
-  stack: [
-    "Laravel",
-    "Next.js",
-    "SQL Server",
-    "DataGrip",
-  ],
-  problem:
-    "Complex enterprise operations required financial, inventory, sales, and procurement processes to remain synchronized while maintaining accounting consistency across interconnected modules.",
-  solution:
-    "Developed and maintained ERP business logic with a primary focus on financial systems including general ledger, accounts receivable, balance sheets, automatic journal posting, inventory costing (COGS), and transaction flows across sales, procurement, inventory, and other operational modules.",
-  mockups: [],
-  internal: true,
-},
-{
-  slug: "sisgo-website-builder",
-  title: "Website Builder",
-  category: "Platform / Website Builder",
-  year: "2026",
-  description:
-    "Scalable website-building platform designed around reusable packages and extensible components.",
-  role: "Software Engineer — Architecture & Platform Development",
-  stack: [
-    "Laravel",
-    "Next.js",
-    "React",
-    "PostgreSQL",
-  ],
-  problem:
-    "Building and maintaining multiple websites independently created duplicated implementations and made features increasingly difficult to reuse, distribute, and scale.",
-  solution:
-    "Designed a reusable website-builder architecture centered on scalability, package-based functionality, shared components, and modular development so features can be developed once and reused across multiple websites.",
-  mockups: [],
-  internal: true,
-},
+    slug: "sisgo-erp",
+    title: "ERP",
+    category: "Enterprise Resource Planning",
+    year: "2026",
+    description:
+      "Integrated ERP platform covering finance, sales, procurement, inventory, and other enterprise operations.",
+    role: "Software Engineer",
+    stack: ["Laravel", "Next.js", "SQL Server", "DataGrip"],
+    problem:
+      "Complex enterprise operations required financial, inventory, sales, and procurement processes to remain synchronized while maintaining accounting consistency across interconnected modules.",
+    solution:
+      "Developed and maintained ERP business logic with a primary focus on financial systems including general ledger, accounts receivable, balance sheets, automatic journal posting, inventory costing (COGS), and transaction flows across sales, procurement, inventory, and other operational modules.",
+    mockups: [],
+    internal: true,
+  },
+  {
+    slug: "bridgeyok",
+    title: "BridgeYok",
+    category: "Real-Time Multiplayer Gaming Platform",
+    year: "2026",
+    description:
+      "Online duplicate contract bridge platform with real-time multiplayer tables, persistent game history, and built-in deal analysis.",
+    role: "Full-Stack Development",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Go",
+      "PostgreSQL",
+      "WebSocket",
+      "C++",
+      "Docker",
+    ],
+    problem:
+      "Online bridge requires accurate auction and card-play rules, duplicate scoring, hidden-hand privacy, and reliable synchronization between players.",
+    solution:
+      "Built a deterministic Go bridge engine and a real-time multiplayer platform with persistent tables, reconnect recovery, board history and replay, DDS-powered analysis, table bots, and two-room Team Match scoring.",
+    mockups: [
+      {
+        src: "/images/projects/bridgeyok/1.webp",
+        alt: "BridgeYok four-seat lobby with invite code and table chat",
+      },
+      {
+        src: "/images/projects/bridgeyok/2.webp",
+        alt: "BridgeYok waiting room showing player seats and readiness",
+      },
+      {
+        src: "/images/projects/bridgeyok/3.webp",
+        alt: "Live BridgeYok card play with player hands, current trick, and chat",
+      },
+      {
+        src: "/images/projects/bridgeyok/4.webp",
+        alt: "BridgeYok board history with step-by-step card replay",
+      },
+    ],
+    link: "https://bridgeyok-web.vercel.app/",
+  },
+  // {
+  //   slug: "sisgo-website-builder",
+  //   title: "Website Builder",
+  //   category: "Platform / Website Builder",
+  //   year: "2026",
+  //   description:
+  //     "Scalable website-building platform designed around reusable packages and extensible components.",
+  //   role: "Software Engineer — Architecture & Platform Development",
+  //   stack: [
+  //     "Laravel",
+  //     "Next.js",
+  //     "React",
+  //     "PostgreSQL",
+  //   ],
+  //   problem:
+  //     "Building and maintaining multiple websites independently created duplicated implementations and made features increasingly difficult to reuse, distribute, and scale.",
+  //   solution:
+  //     "Designed a reusable website-builder architecture centered on scalability, package-based functionality, shared components, and modular development so features can be developed once and reused across multiple websites.",
+  //   mockups: [],
+  //   internal: true,
+  // },
   {
     slug: "mentorin",
     title: "Mentorin",
@@ -113,20 +150,22 @@ export const projects: Project[] = [
     stack: ["HTML", "Tailwind CSS", "jQuery", "Netlify"],
     problem:
       "The prototype needed a clear public explanation for potential adopters.",
-    solution: "Designed and deployed a responsive product narrative on Netlify.",
+    solution:
+      "Designed and deployed a responsive product narrative on Netlify.",
     mockups: [
       { src: "/images/projects/fruit-guard/1.webp", alt: "Mahesa Yuztar" },
       { src: "/images/projects/fruit-guard/2.webp", alt: "Mahesa Yuztar" },
       { src: "/images/projects/fruit-guard/3.webp", alt: "Mahesa Yuztar" },
     ],
-    link: "https://fruit-guard.netlify.app"
+    link: "https://fruit-guard.netlify.app",
   },
   {
     slug: "govind-abra-enterprise",
     title: "Govind Abra Enterprise",
     category: "Business Platform",
     year: "2024",
-    description: "Certification registration, administration, and payment platform.",
+    description:
+      "Certification registration, administration, and payment platform.",
     role: "Fullstack Development",
     stack: [
       "Laravel",
@@ -141,6 +180,6 @@ export const projects: Project[] = [
     solution:
       "Unified participant registration, certification management, admin tools, and Midtrans payment in a Dockerized Laravel application.",
     mockups: [],
-    internal: true
+    internal: true,
   },
 ];
